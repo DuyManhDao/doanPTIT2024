@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.controller;
 import com.ptit.d20cntt.datn.entity.MauSac;
 import com.ptit.d20cntt.datn.request.MauSacRequest;
 import com.ptit.d20cntt.datn.service.MauSacService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class MauSacController {
 
     @Autowired
     private MauSacService mauSacService;
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
 
     @GetMapping

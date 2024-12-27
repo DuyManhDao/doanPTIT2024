@@ -59,19 +59,19 @@ CREATE TABLE `chi_tiet_san_pham` (
   `qr` varchar(255) DEFAULT NULL,
   `so_luong_ton` int DEFAULT NULL,
   `trang_thai` tinyint DEFAULT NULL,
-  `id_de_giay` bigint DEFAULT NULL,
+  `id_loai_vai` bigint DEFAULT NULL,
   `id_kich_thuoc` bigint DEFAULT NULL,
   `id_mau_sac` bigint DEFAULT NULL,
   `id_san_pham` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKtj2f11b2f5l0l8rh9wfnyena2` (`id_de_giay`),
+  KEY `FKtj2f11b2f5l0l8rh9wfnyena2` (`id_loai_vai`),
   KEY `FKbfcsbyjh36fo547ik10d8ejc4` (`id_kich_thuoc`),
   KEY `FKhrc41nqmp3jsh42ikergp7qsd` (`id_mau_sac`),
   KEY `FKhry1oewlwwhwhuqhr1tinw6l6` (`id_san_pham`),
   CONSTRAINT `FKbfcsbyjh36fo547ik10d8ejc4` FOREIGN KEY (`id_kich_thuoc`) REFERENCES `kich_thuoc` (`id`),
   CONSTRAINT `FKhrc41nqmp3jsh42ikergp7qsd` FOREIGN KEY (`id_mau_sac`) REFERENCES `mau_sac` (`id`),
   CONSTRAINT `FKhry1oewlwwhwhuqhr1tinw6l6` FOREIGN KEY (`id_san_pham`) REFERENCES `san_pham` (`id`),
-  CONSTRAINT `FKtj2f11b2f5l0l8rh9wfnyena2` FOREIGN KEY (`id_de_giay`) REFERENCES `de_giay` (`id`)
+  CONSTRAINT `FKtj2f11b2f5l0l8rh9wfnyena2` FOREIGN KEY (`id_loai_vai`) REFERENCES `loai_vai` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -113,13 +113,13 @@ LOCK TABLES `danh_muc` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `de_giay`
+-- Table structure for table `loai_vai`
 --
 
-DROP TABLE IF EXISTS `de_giay`;
+DROP TABLE IF EXISTS `loai_vai`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `de_giay` (
+CREATE TABLE `loai_vai` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `ma` varchar(255) NOT NULL,
   `ngay_sua` datetime(6) DEFAULT NULL,
@@ -132,13 +132,13 @@ CREATE TABLE `de_giay` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `de_giay`
+-- Dumping data for table `loai_vai`
 --
 
-LOCK TABLES `de_giay` WRITE;
-/*!40000 ALTER TABLE `de_giay` DISABLE KEYS */;
-INSERT INTO `de_giay` VALUES (1,'DG1','2024-07-21 23:47:02.189935','2024-07-21 23:47:02.189935','Đế Cao Su'),(2,'DG2','2024-07-21 23:48:08.440268','2024-07-21 23:47:08.940366','Đế giày Rubber'),(3,'DG3','2024-07-21 23:48:18.791924','2024-07-21 23:47:14.768866','Đế giày Ridgeway'),(5,'DG5','2024-07-21 23:48:00.357718','2024-07-21 23:47:25.006508','Đế giày Commando'),(6,'DG6','2024-07-21 23:48:28.525708','2024-07-21 23:48:28.525708','Đế giày Polyurethane'),(7,'DG7','2024-07-21 23:48:35.768171','2024-07-21 23:48:35.768171','Đế giày Leather');
-/*!40000 ALTER TABLE `de_giay` ENABLE KEYS */;
+LOCK TABLES `loai_vai` WRITE;
+/*!40000 ALTER TABLE `loai_vai` DISABLE KEYS */;
+INSERT INTO `loai_vai` VALUES (1,'DG1','2024-07-21 23:47:02.189935','2024-07-21 23:47:02.189935','Đế Cao Su'),(2,'DG2','2024-07-21 23:48:08.440268','2024-07-21 23:47:08.940366','Loại vải Rubber'),(3,'DG3','2024-07-21 23:48:18.791924','2024-07-21 23:47:14.768866','Loại vải Ridgeway'),(5,'DG5','2024-07-21 23:48:00.357718','2024-07-21 23:47:25.006508','Loại vải Commando'),(6,'DG6','2024-07-21 23:48:28.525708','2024-07-21 23:48:28.525708','Loại vải Polyurethane'),(7,'DG7','2024-07-21 23:48:35.768171','2024-07-21 23:48:35.768171','Loại vải Leather');
+/*!40000 ALTER TABLE `loai_vai` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -334,7 +334,7 @@ DROP TABLE IF EXISTS `hoa_don_chi_tiet`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hoa_don_chi_tiet` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `de_giay` varchar(255) DEFAULT NULL,
+  `loai_vai` varchar(255) DEFAULT NULL,
   `gia_ban` decimal(19,2) DEFAULT NULL,
   `kich_thuoc` varchar(255) DEFAULT NULL,
   `mau_sac` varchar(255) DEFAULT NULL,
@@ -595,7 +595,7 @@ CREATE TABLE `san_pham` (
 
 LOCK TABLES `san_pham` WRITE;
 /*!40000 ALTER TABLE `san_pham` DISABLE KEYS */;
-INSERT INTO `san_pham` VALUES (1,'vn-11134201-7r98o-lloufk5z5bz37b.jpg','SPP001','Fila Oakmont Tr là môt đôi giày  được làm từ 43% chất liệu tổng hợp, 25% dệt may và 32% từ da, những vật liệu có tính bền cao. Ngoài ra, đế giày được cấu tạo từ cao su và EVA giúp đảm bảo độ bám và sự êm ái cho người mang.','2024-07-22','2024-07-21','Giày Fila Oakmont Tr',0,2,1,3),(2,'vn-11134201-7r98o-lloufk9kklpba5.jpg','SP002','Fila Ray Tracer hiện đang là một trong những đôi giày sneaker gây sốt thị trường trong thời gian gần đây. Thân giày được gia công từ chất liệu da/vải cao cấp với độ ôm chân vừa phải. Giúp đôi giày cố định và nâng đỡ tốt bàn chân trong quá trình di chuyển.','2024-07-22','2024-07-22','Giày Fila Ray Tracer',0,4,6,6),(3,'vn-11134207-7r98o-lofgcn05sp9vf6.jpg','SP003','Giày Fila Raid Low 2000 là một đôi giày thể thao mang tính biểu tượng của thương hiệu Fila. Với thiết kế cổ thấp, đây là sự kết hợp giữa phong cách retro và hiện đại, tạo nên một cái nhìn độc đáo, trẻ trung và ấn tượng.','2024-07-22','2024-07-22','.Giày Adidas Samba Classic White ',0,2,1,4),(4,'vn-11134201-7r98o-lloufjy718tb92.jpg','SP004','Giày adidas Stan Smith chinh phục người dùng với thân giày được gia công hoàn toàn từ các thành phần thân thiện với môi trường, thân giày nhẹ tênh với vải dệt chứa đến 50% thành phần tái chế hiệu năng cao.','2024-07-22','2024-07-22','Giày Vans trắng xám sọc đen nam nữ',0,3,7,4),(5,'vn-11134201-7r98o-lty0oiia4ayfdf.jpg','SP005','Giày New Balance Shifted 90/60 là một đôi giày mới trong dòng giày thể thao của hãng NB. Được thiết kế để mang lại một cảm giác cân bằng khi đi lại, cung cấp sự thoải mái tối đa trong từng bước di chuyển.','2024-07-22','2024-07-22','Giày Sneaker Sb Dunk Low Disrupt 2 Pale Ivory Black',0,2,1,3),(6,'vn-11134201-7r98o-lty0oiia4ayfdf.jpg','SP007','HHH','2024-07-22','2024-07-22','thichthigiam',0,2,3,3),(7,'vn-11134201-7r98o-lkjebzhdcn80e1.jpg','PGG001',' khá \"gồ ghề\", được làm từ 43% chất liệu tổng hợp, 25% dệt may và 32% từ da, những vật liệu có tính bền cao. Ngoài ra, đế giày cảu Oakmont Tr được cấu tạo từ cao su và EVA giúp đảm bảo độ bám và sự êm ái cho người mang.','2024-07-30','2024-07-30','Phạm Văn Dương',0,1,1,1);
+INSERT INTO `san_pham` VALUES (1,'vn-11134201-7r98o-lloufk5z5bz37b.jpg','SPP001','Fila Oakmont Tr là môt đôi giày  được làm từ 43% chất liệu tổng hợp, 25% dệt may và 32% từ da, những vật liệu có tính bền cao. Ngoài ra, Loại vải được cấu tạo từ cao su và EVA giúp đảm bảo độ bám và sự êm ái cho người mang.','2024-07-22','2024-07-21','Giày Fila Oakmont Tr',0,2,1,3),(2,'vn-11134201-7r98o-lloufk9kklpba5.jpg','SP002','Fila Ray Tracer hiện đang là một trong những đôi giày sneaker gây sốt thị trường trong thời gian gần đây. Thân giày được gia công từ chất liệu da/vải cao cấp với độ ôm chân vừa phải. Giúp đôi giày cố định và nâng đỡ tốt bàn chân trong quá trình di chuyển.','2024-07-22','2024-07-22','Giày Fila Ray Tracer',0,4,6,6),(3,'vn-11134207-7r98o-lofgcn05sp9vf6.jpg','SP003','Giày Fila Raid Low 2000 là một đôi giày thể thao mang tính biểu tượng của thương hiệu Fila. Với thiết kế cổ thấp, đây là sự kết hợp giữa phong cách retro và hiện đại, tạo nên một cái nhìn độc đáo, trẻ trung và ấn tượng.','2024-07-22','2024-07-22','.Giày Adidas Samba Classic White ',0,2,1,4),(4,'vn-11134201-7r98o-lloufjy718tb92.jpg','SP004','Giày adidas Stan Smith chinh phục người dùng với thân giày được gia công hoàn toàn từ các thành phần thân thiện với môi trường, thân giày nhẹ tênh với vải dệt chứa đến 50% thành phần tái chế hiệu năng cao.','2024-07-22','2024-07-22','Giày Vans trắng xám sọc đen nam nữ',0,3,7,4),(5,'vn-11134201-7r98o-lty0oiia4ayfdf.jpg','SP005','Giày New Balance Shifted 90/60 là một đôi giày mới trong dòng giày thể thao của hãng NB. Được thiết kế để mang lại một cảm giác cân bằng khi đi lại, cung cấp sự thoải mái tối đa trong từng bước di chuyển.','2024-07-22','2024-07-22','Giày Sneaker Sb Dunk Low Disrupt 2 Pale Ivory Black',0,2,1,3),(6,'vn-11134201-7r98o-lty0oiia4ayfdf.jpg','SP007','HHH','2024-07-22','2024-07-22','thichthigiam',0,2,3,3),(7,'vn-11134201-7r98o-lkjebzhdcn80e1.jpg','PGG001',' khá \"gồ ghề\", được làm từ 43% chất liệu tổng hợp, 25% dệt may và 32% từ da, những vật liệu có tính bền cao. Ngoài ra, Loại vải cảu Oakmont Tr được cấu tạo từ cao su và EVA giúp đảm bảo độ bám và sự êm ái cho người mang.','2024-07-30','2024-07-30','Phạm Văn Dương',0,1,1,1);
 /*!40000 ALTER TABLE `san_pham` ENABLE KEYS */;
 UNLOCK TABLES;
 

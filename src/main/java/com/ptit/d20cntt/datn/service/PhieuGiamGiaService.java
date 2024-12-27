@@ -8,27 +8,31 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface PhieuGiamGiaService {
-    List<PhieuGiamGia> getAll();
+	List<PhieuGiamGia> getAll();
 
-    List<PhieuGiamGia> getListHoatDong();
+	List<PhieuGiamGia> getListHoatDong();
 
-    List<PhieuGiamGia> getByTrangThai(TrangThaiPhieuKhuyenMai trangThaiKhuyenMai);
-    String delete(Long id);
-    void updateTrangThai();
+	List<PhieuGiamGia> getByTrangThai(TrangThaiPhieuKhuyenMai trangThaiKhuyenMai);
 
-    PhieuGiamGia add(PhieuGiamGiaRequest phieuGiamGiaRequest);
+	String delete(Long id);
 
-    PhieuGiamGia getById(Long id);
+	void updateTrangThai();
 
-    PhieuGiamGia update(PhieuGiamGiaRequest phieuGiamGiaRequest);
+	PhieuGiamGia add(PhieuGiamGiaRequest phieuGiamGiaRequest);
 
-    void huy(Long id);
-    void bat(Long id);
+	PhieuGiamGia getById(Long id);
 
-    boolean existsByTen(String ten);
+	PhieuGiamGia update(PhieuGiamGiaRequest phieuGiamGiaRequest);
 
-    boolean existsByTenAndIdNot(String ten, Long id);
+	void huy(Long id);
 
-    List<PhieuGiamGia> layList(Long tongGiaTri);
-    List<PhieuGiamGia> findMaGiamGia(LocalDate start, LocalDate end, TrangThaiPhieuKhuyenMai trangThaiKhuyenMai);
+	void bat(Long id);
+
+	boolean existsByTen(String ten);
+
+	boolean existsByTenAndIdNot(String ten, Long id);
+
+	List<PhieuGiamGia> layList(Long tongGiaTri);
+
+	List<PhieuGiamGia> findMaGiamGia(LocalDate start, LocalDate end, TrangThaiPhieuKhuyenMai trangThaiKhuyenMai);
 }

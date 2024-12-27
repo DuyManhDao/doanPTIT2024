@@ -1,7 +1,7 @@
 package com.ptit.d20cntt.datn.enumation;
 
 public enum LoaiHoaDon {
-     HOA_DON_OFFLINE(0),
+    HOA_DON_OFFLINE(0),
 
     HOA_DON_ONLINE(1);
 

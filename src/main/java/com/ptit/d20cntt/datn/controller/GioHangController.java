@@ -16,7 +16,7 @@ import com.ptit.d20cntt.datn.service.GioHangChiTietService;
 import com.ptit.d20cntt.datn.service.KhachHangService;
 import com.ptit.d20cntt.datn.service.PhieuGiamGiaService;
 import com.ptit.d20cntt.datn.service.impl.PaymentServiceImpl;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -34,7 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping("/beestore/cart")
+@RequestMapping("/hmstore/cart")
 public class GioHangController {
 
     @Autowired
@@ -54,29 +54,32 @@ public class GioHangController {
 
     @Autowired
     private DiaChiService diaChiService;
+
     private GioHangWrapper gioHangWrapper;
-    private Spingsecurity spingsecurity = new Spingsecurity();
+
+    private SpingSecurity spingsecurity = new SpingSecurity();
     @Autowired
     private GioHangChiTietService gioHangChiTietService;
-
-
 
     @Value("${payment.vnPay.clientReturnUrl}")
     private String vnpReturnUrl;
 
     @GetMapping
     public String cart(Model model) {
+
         Long idKhachHang = spingsecurity.getCurrentUserId();
-        if(idKhachHang==null){
+        if (idKhachHang == null) {
             return "redirect:/login";
         }
 
+        model.addAttribute("checkSecurity", true);
 
         List<GioHangChiTiet> listGioHangChiTiet = gioHangChiTietService.getAll(idKhachHang);
 
         if (listGioHangChiTiet != null) {
 
             model.addAttribute("listGioHangChiTiet", listGioHangChiTiet);
+
             int totalQuantity = listGioHangChiTiet.stream()
                     .mapToInt(GioHangChiTiet::getSoLuong)
                     .sum();
@@ -84,8 +87,8 @@ public class GioHangController {
 
         }
 
-
         return "customer-template/cart";
+
     }
 
     @PostMapping("/add/{id}")
@@ -101,7 +104,7 @@ public class GioHangController {
 
             redirectAttributes.addFlashAttribute("toastMessage", "Chọn đầy đủ màu sắc và size");
             redirectAttributes.addFlashAttribute("toastType", "error");
-            return "redirect:/beestore/detaisp/" + idChiTietSanPham;
+            return "redirect:/hmstore/detaisp/" + idChiTietSanPham;
 
         }
         if(idKhachHang==null){
@@ -112,7 +115,7 @@ public class GioHangController {
 //        model.addAttribute("success", "Thêm thành công");
         redirectAttributes.addFlashAttribute("toastMessage", "Thêm thành công ");
         redirectAttributes.addFlashAttribute("toastType", "success");
-        return "redirect:/beestore/detaisp/" + idChiTietSanPham;
+        return "redirect:/hmstore/detaisp/" + idChiTietSanPham;
     }
 
     @GetMapping("/addOne/{id}")
@@ -128,12 +131,12 @@ public class GioHangController {
         banHangCustomerService.themVaoGioHang(idKhachHang, idChiTietSanPham, 1);
 //        thongBao(redirectAttributes, "Thêm thành công", 1);
 //        thongBao(redirectAttributes, "Thành công", 1);
-        return "redirect:/beestore/detaisp/" + idChiTietSanPham;
+        return "redirect:/hmstore/detaisp/" + idChiTietSanPham;
     }
     @GetMapping("/xoa/{id}")
     public String xoaKhoiGio(@PathVariable("id") Long id) {
         banHangCustomerService.xoaKhoiGioHang(id);
-        return "redirect:/beestore/cart";
+        return "redirect:/hmstore/cart";
     }
 
     @GetMapping("/checkout")
@@ -220,24 +223,30 @@ public class GioHangController {
 
             Long idKhachHang = spingsecurity.getCurrentUserId();
             String diaChiCuThe = diaChi + "," + xa + "," + huyen + "," + thanhPho;
-            banHangCustomerService.datHangItems(gioHangWrapper, idKhachHang, ten, diaChiCuThe, sdt, ghiChu, shippingFee, BigDecimal.valueOf(Double.valueOf(tongTien)), totalAmount, tienGiamGia, selectedVoucherId, diemTichLuy, useAllPointsHidden);
+            banHangCustomerService.datHangItems(gioHangWrapper, idKhachHang, ten, diaChiCuThe, sdt, ghiChu, shippingFee,
+                                                BigDecimal.valueOf(Double.valueOf(tongTien)), totalAmount, tienGiamGia,
+                                                selectedVoucherId, diemTichLuy, useAllPointsHidden);
 
-        } else if(paymentMethod.equals("VNPay")) {
+        } else if (paymentMethod.equals("VNPay")) {
             //  case 2   thanh toán VNPay
 
             // lưu tạm - lấy ra khi thanh toán success , ghi vào database
-            OrderDataDTO orderData = new OrderDataDTO(diaChi, xa, huyen, thanhPho, sdt, ghiChu, ten, shippingFee, tongTien, totalAmount, selectedVoucherId, useAllPointsHidden, diemTichLuy, tienGiamGia, paymentMethod);
+            OrderDataDTO orderData = new OrderDataDTO(diaChi, xa, huyen, thanhPho, sdt, ghiChu, ten, shippingFee,
+                                                    tongTien, totalAmount, selectedVoucherId, useAllPointsHidden,
+                                                    diemTichLuy, tienGiamGia, paymentMethod);
             banHangCustomerService.saveOrderData(orderData);
             banHangCustomerService.saveGioHangWrapper(gioHangWrapper);
 
             // thanh toán vnpay - chuyển hướng đến thanh thanh toán của VNPay
             System.out.println("DIem all  " + (int) Double.parseDouble(tongTien) + " " + shippingFee.intValue() + " " + tienGiamGia.intValue() + " " + diemTichLuySubtract.intValue());
-            System.out.println( (int) Double.parseDouble(tongTien) + shippingFee.intValue() - tienGiamGia.intValue() - diemTichLuySubtract.intValue() );
-            VNPayResponse vnpayUrl = paymentService.createVnPayPayment(request, (int) Double.parseDouble(tongTien) + shippingFee.intValue() - tienGiamGia.intValue() - diemTichLuySubtract.intValue() , orderInfo, vnpReturnUrl);
+            System.out.println((int) Double.parseDouble(tongTien) + shippingFee.intValue() - tienGiamGia.intValue() - diemTichLuySubtract.intValue());
+            VNPayResponse vnpayUrl = paymentService.createVnPayPayment(request, (int) Double.parseDouble(tongTien)
+                                                                    + shippingFee.intValue() - tienGiamGia.intValue()
+                                                                    - diemTichLuySubtract.intValue(), orderInfo, vnpReturnUrl);
             String urlReturn = vnpayUrl.paymentUrl;
             return "redirect:" + urlReturn;
         }
-        return "redirect:/beestore/cart/thankyou";
+        return "redirect:/hmstore/cart/thankyou";
     }
 
 
@@ -263,7 +272,7 @@ public class GioHangController {
         }
         List<PhieuGiamGia> vouchers = maGiamGiaService.layList(total);
         model.addAttribute("vouchers", vouchers);
-        return "redirect:/beestore/cart/checkout?options=" + options;
+        return "redirect:/hmstore/cart/checkout?options=" + options;
     }
 
     @PostMapping("/checkout/sua-dia-chi/{idKhachHang}")
@@ -275,7 +284,7 @@ public class GioHangController {
                             @RequestParam("options") String options
     ) {
         diaChiService.update(diaChiRequest, thanhPho, quanHuyen, phuongXa);
-        return "redirect:/beestore/cart/checkout?options=" + options;
+        return "redirect:/hmstore/cart/checkout?options=" + options;
     }
     @GetMapping("/checkout/delete-dia-chi/{idKhachHang}")
     public String deleteDiaChicheckout(@PathVariable("id") Long id,
@@ -284,7 +293,7 @@ public class GioHangController {
 
     ) {
         diaChiService.remove(id);
-        return "redirect:/beestore/cart/checkout?options=" + options;
+        return "redirect:/hmstore/cart/checkout?options=" + options;
     }
 
     @PostMapping("/updateQuantity")
@@ -300,7 +309,12 @@ public class GioHangController {
         }
     }
     @GetMapping("/thankyou")
-    public String b() {
+    public String b(Model model) {
+        Long idKhachHang = spingsecurity.getCurrentUserId();
+        Boolean checkSecurity = idKhachHang != null;
+
+        model.addAttribute("checkSecurity", checkSecurity);
+
         return "customer-template/camon";
     }
 

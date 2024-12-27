@@ -6,27 +6,28 @@ import com.ptit.d20cntt.datn.request.NhanVienRequest;
 import java.util.List;
 
 public interface NhanVienService {
-    List<NhanVien> getAll();
+	List<NhanVien> getAll();
 
-    NhanVien add(NhanVienRequest nhanVienRequset);
+	NhanVien add(NhanVienRequest nhanVienRequset);
 
-    String delete(Long id);
+	String delete(Long id);
 
-    boolean checkPhoneDuplicate(String phone);
-    boolean checkPhoneDuplicate(String phone, long id);
+	boolean checkPhoneDuplicate(String phone);
 
-    boolean checkCccdDuplicate(String cccd);
-    boolean checkCccdDuplicate(String cccd, long id);
+	boolean checkPhoneDuplicate(String phone, long id);
 
-    boolean checkEmailDuplicate(String mail);
-    boolean checkEmailDuplicate(String mail, long id);
+	boolean checkCccdDuplicate(String cccd);
 
-    NhanVien getOne(long id);
+	boolean checkCccdDuplicate(String cccd, long id);
 
-    NhanVien update(NhanVien nhanVien);
+	boolean checkEmailDuplicate(String mail);
 
-    void thayDoiTrangThai(long id);
+	boolean checkEmailDuplicate(String mail, long id);
 
+	NhanVien getOne(long id);
 
+	NhanVien update(NhanVien nhanVien);
+
+	void thayDoiTrangThai(long id);
 
 }

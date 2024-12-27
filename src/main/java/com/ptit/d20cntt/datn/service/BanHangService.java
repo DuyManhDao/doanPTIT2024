@@ -9,60 +9,58 @@ import com.ptit.d20cntt.datn.entity.PhieuGiamGia;
 import java.math.BigDecimal;
 import java.util.List;
 
-public interface  BanHangService {
-    List<HoaDon> getHoaDonCho();
+public interface BanHangService {
+	List<HoaDon> getHoaDonCho();
 
-    List<HoaDonChiTiet> getHoaDonChiTietByIdHoaDon(Long idHoaDon);
+	List<HoaDonChiTiet> getHoaDonChiTietByIdHoaDon(Long idHoaDon);
 
-    HoaDon getOneById(Long idHoaDon);
+	HoaDon getOneById(Long idHoaDon);
 
-    ChiTietSanPham getChiTietSanPhamById(Long idChiTietSanPham);
+	ChiTietSanPham getChiTietSanPhamById(Long idChiTietSanPham);
 
-    List<ChiTietSanPham> getChiTietSanPham();
+	List<ChiTietSanPham> getChiTietSanPham();
 
-    HoaDon themHoaDon(HoaDon hoaDon,Long idNhanVien);
+	HoaDon themHoaDon(HoaDon hoaDon, Long idNhanVien);
 
-    HoaDonChiTiet taoHoaDonChiTiet(Long idSanPham,Long idHoaDon, HoaDonChiTiet hoaDonChiTiet);
+	HoaDonChiTiet taoHoaDonChiTiet(Long idSanPham, Long idHoaDon, HoaDonChiTiet hoaDonChiTiet);
 
-    HoaDonChiTiet getOneByIdHDCT(Long idHDCT);
+	HoaDonChiTiet getOneByIdHDCT(Long idHDCT);
 
-    HoaDonChiTiet xoaHoaDonChiTiet(Long idHoaDonChiTiet);
+	HoaDonChiTiet xoaHoaDonChiTiet(Long idHoaDonChiTiet);
 
-    HoaDon thanhToanHoaDon(Long idHoaDon, BigDecimal tienGiamGia);
+	HoaDon thanhToanHoaDon(Long idHoaDon, BigDecimal tienGiamGia);
 
-    HoaDon checkXuHoaDon(Long idHoaDon, String tongTien, String thanhTien, Boolean xuTichDiem);
+	HoaDon checkXuHoaDon(Long idHoaDon, String tongTien, String thanhTien, Boolean xuTichDiem);
 
-    BigDecimal voucher(Long idHoaDon, BigDecimal tongTien);
+	BigDecimal voucher(Long idHoaDon, BigDecimal tongTien);
 
-    Integer checkVoucher(Long idHoaDon, Long idMaGiamGia, BigDecimal tongTien);
+	Integer checkVoucher(Long idHoaDon, Long idMaGiamGia, BigDecimal tongTien);
 
-    BigDecimal getTongTien(Long idHoaDon);
+	BigDecimal getTongTien(Long idHoaDon);
 
-    BigDecimal getThanhTien(Long idHoaDon, BigDecimal tongTien);
+	BigDecimal getThanhTien(Long idHoaDon, BigDecimal tongTien);
 
-    ChiTietSanPham updateSoLuong(Long idSanPham, Integer soLuong);
+	ChiTietSanPham updateSoLuong(Long idSanPham, Integer soLuong);
 
-    ChiTietSanPham updateSoLuongTuHDCT(Long idHDCT);
+	ChiTietSanPham updateSoLuongTuHDCT(Long idHDCT);
 
-    HoaDon updateKhachHang(Long idHoaDon, Long idKhachHang);
-
-
-    PhieuGiamGia updateGiamGia(Long idHoaDon);
+	HoaDon updateKhachHang(Long idHoaDon, Long idKhachHang);
 
 
+	PhieuGiamGia updateGiamGia(Long idHoaDon);
 
-    HoaDonChiTiet tangSoLuongSanPham(Long idHDCT, Integer soLuong);
 
-    HoaDonChiTiet tangSoLuongSanPhamHoaDon(Long idHDCT, Integer soLuong);
+	HoaDonChiTiet tangSoLuongSanPham(Long idHDCT, Integer soLuong);
 
-    HoaDonChiTiet giamSoLuongSanPhamHoaDon(Long idHDCT, Integer soLuong);
+	HoaDonChiTiet tangSoLuongSanPhamHoaDon(Long idHDCT, Integer soLuong);
 
-    ChiTietSanPham suaSoLuongSanPham(Long idHDCT);
+	HoaDonChiTiet giamSoLuongSanPhamHoaDon(Long idHDCT, Integer soLuong);
 
-    Boolean huyDon(Long idHoaDon);
+	ChiTietSanPham suaSoLuongSanPham(Long idHDCT);
 
-    KhachHang tichDiem(Long idKhachHang, String thanhTien);
+	Boolean huyDon(Long idHoaDon);
 
+	KhachHang tichDiem(Long idKhachHang, String thanhTien);
 
 
 }

@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface MauSacResponsitory extends JpaRepository<MauSac,Long> {
+public interface MauSacRepository extends JpaRepository<MauSac,Long> {
 
 
     @Query(value = "SELECT ms.* FROM mau_sac ms " +

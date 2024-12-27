@@ -28,26 +28,25 @@ import static jakarta.persistence.EnumType.ORDINAL;
 @Table(name = "thuong_hieu")
 public class ThuongHieu {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
+	@Column(name = "ma", nullable = false, unique = true)
+	private String ma;
 
-    @Column(name = "ma", nullable = false, unique = true)
-    private String ma;
+	@NotBlank(message = "Tên Không được để trống!")
+	@Column(name = "ten", nullable = false, unique = true)
+	private String ten;
 
-    @NotBlank(message = "Tên Không được để trống!")
-    @Column(name = "ten", nullable = false, unique = true)
-    private String ten;
+	@Column(name = "ngay_tao")
+	private LocalDate ngayTao;
 
-    @Column(name = "ngay_tao")
-    private LocalDate ngayTao;
+	@Column(name = "ngay_sua")
+	private LocalDate ngaySua;
 
-    @Column(name = "ngay_sua")
-    private LocalDate ngaySua;
-
-    @Column(name = "trang_thai")
-    @Enumerated(ORDINAL)
-    private TrangThai trangThai;
+	@Column(name = "trang_thai")
+	@Enumerated(ORDINAL)
+	private TrangThai trangThai;
 
 }

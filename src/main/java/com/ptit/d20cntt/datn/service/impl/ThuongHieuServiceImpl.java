@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.service.impl;
 import com.ptit.d20cntt.datn.entity.ThuongHieu;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.ThuongHieuRequest;
-import com.ptit.d20cntt.datn.responsitory.ThuongHieuResponsitory;
+import com.ptit.d20cntt.datn.responsitory.ThuongHieuRepository;
 import com.ptit.d20cntt.datn.service.ThuongHieuService;
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +14,9 @@ import java.util.Optional;
 @Repository
 public class ThuongHieuServiceImpl implements ThuongHieuService {
 
-    private final ThuongHieuResponsitory repository;
+    private final ThuongHieuRepository repository;
 
-    public ThuongHieuServiceImpl(ThuongHieuResponsitory repository) {
+    public ThuongHieuServiceImpl(ThuongHieuRepository repository) {
         this.repository = repository;
     }
 

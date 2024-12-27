@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>BeeStore Admin</title>
+    <title>HMStore Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="/../../img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon">    <!-- Google Web Fonts -->
+    <link href="/../../img/hm.jpg" rel="icon">    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
         <nav class="navbar bg-light navbar-light">
             <a th:href="@{/admin/ban-hang}" class="navbar-brand mx-4 mb-3">
 
-                <h3 style="color: orange" ><i class="me-2" ></i>BeeStore </h3>
+                <h3 style="color: orange" ><i class="me-2" ></i>HMStore </h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
@@ -70,7 +70,7 @@
                         <a th:href="@{/admin/thuong-hieu}" class="dropdown-item">* Thương Hiệu</a>
                         <a th:href="@{/admin/mau-sac}" class="dropdown-item">* Màu Sắc</a>
                         <a th:href="@{/admin/kich-thuoc}" class="dropdown-item"> * Kích Thước</a>
-                        <a th:href="@{/admin/de-giay}" class="dropdown-item">* Đế Giày</a>
+                        <a th:href="@{/admin/loai-vai}" class="dropdown-item">* Loại vải</a>
 
                     </div>
                 </div>
@@ -115,7 +115,7 @@
             </div>
         </nav>
 
-        <!-- Modal đế giầy -->
+        <!-- Modal loại vải -->
         <div class="modal" id="myModalDG" role="dialog" tabindex="-1">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -139,7 +139,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                        <button class="btn btn-primary" type="button" onclick="addDeGiay()">Thêm</button>
+                        <button class="btn btn-primary" type="button" onclick="addLoaiVai()">Thêm</button>
                     </div>
                 </div>
             </div>

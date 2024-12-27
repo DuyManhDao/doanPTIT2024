@@ -6,17 +6,17 @@ import com.ptit.d20cntt.datn.request.KichThuocRequest;
 import java.util.List;
 
 public interface KhichThuocService {
-    List<KichThuoc> getAllKichThuoc();
+	List<KichThuoc> getAllKichThuoc();
 
-    KichThuoc add(KichThuocRequest kichThuocRequest);
+	KichThuoc add(KichThuocRequest kichThuocRequest);
 
-    String delete(Long id);
+	String delete(Long id);
 
-    KichThuoc getOne(Long id);
+	KichThuoc getOne(Long id);
 
-    KichThuoc findById(Long id);
+	KichThuoc findById(Long id);
 
-    KichThuoc update(KichThuoc kichThuoc);
+	KichThuoc update(KichThuoc kichThuoc);
 
-    List<KichThuoc> findByProductId(Long productId);
+	List<KichThuoc> findByProductId(Long productId);
 }

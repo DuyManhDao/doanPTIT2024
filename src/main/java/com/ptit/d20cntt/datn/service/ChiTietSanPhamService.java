@@ -6,22 +6,22 @@ import com.ptit.d20cntt.datn.request.ChiTietSanPhamRequest;
 import java.util.List;
 
 public interface ChiTietSanPhamService {
-    List<ChiTietSanPham> getAll();
+	List<ChiTietSanPham> getAll();
 
-    ChiTietSanPham getById(Long id);
+	ChiTietSanPham getById(Long id);
 
-    List<ChiTietSanPham> getAllChiTietSanPham();
+	List<ChiTietSanPham> getAllChiTietSanPham();
 
-    ChiTietSanPham add(ChiTietSanPhamRequest chiTietSanPhamRequest);
+	ChiTietSanPham add(ChiTietSanPhamRequest chiTietSanPhamRequest);
 
-    String delete(Long id);
+	String delete(Long id);
 
-    ChiTietSanPham getOne(Long id);
+	ChiTietSanPham getOne(Long id);
 
-    ChiTietSanPham update(ChiTietSanPham chiTietSanPham);
+	ChiTietSanPham update(ChiTietSanPham chiTietSanPham);
 
-    void thayDoiTrangThai(Long id);
+	void thayDoiTrangThai(Long id);
 
-    ChiTietSanPham findByColorAndSize(Long colorId, Long sizeId, Long productId);
+	ChiTietSanPham findByColorAndSize(Long colorId, Long sizeId, Long productId);
 
 }

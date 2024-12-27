@@ -56,8 +56,8 @@ public class HoaDonChiTiet {
     @Column(name = "thuong_hieu")
     private String thuongHieu;
 
-    @Column(name = "de_giay")
-    private String deGiay;
+    @Column(name = "loai_vai")
+    private String loaiVai;
 
     @Column(name = "so_luong")
     private Integer soLuong;

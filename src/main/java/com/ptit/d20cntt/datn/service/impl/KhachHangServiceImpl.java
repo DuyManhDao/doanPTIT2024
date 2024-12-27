@@ -5,8 +5,8 @@ import com.ptit.d20cntt.datn.entity.KhachHang;
 import com.ptit.d20cntt.datn.enumation.GioiTinh;
 import com.ptit.d20cntt.datn.request.KhachHangRequest;
 import com.ptit.d20cntt.datn.request.RegisterRequest;
-import com.ptit.d20cntt.datn.responsitory.DiaChiResponsitory;
-import com.ptit.d20cntt.datn.responsitory.KhachHangResponsitory;
+import com.ptit.d20cntt.datn.responsitory.DiaChiRepository;
+import com.ptit.d20cntt.datn.responsitory.KhachHangRepository;
 import com.ptit.d20cntt.datn.sendmail.EmailService;
 import com.ptit.d20cntt.datn.service.KhachHangService;
 import com.ptit.d20cntt.datn.worker.AutoGenCodeRandom;
@@ -24,41 +24,41 @@ import java.util.List;
 @Service
 public class KhachHangServiceImpl implements KhachHangService {
     @Autowired
-    KhachHangResponsitory khachHangResponsitory;
+    KhachHangRepository khachHangRepository;
     @Autowired
-    DiaChiResponsitory diaChiResponsitory;
+    DiaChiRepository diaChiRepository;
     @Autowired
     private EmailService emailService;
 
 
     @Override
     public List<KhachHang> getList() {
-        return khachHangResponsitory.getListKhachHang();
+        return khachHangRepository.getListKhachHang();
     }
 
     @Override
     public boolean existsBySdt(String sdt) {
-        return khachHangResponsitory.existsBySdt(sdt);
+        return khachHangRepository.existsBySdt(sdt);
     }
 
     @Override
     public boolean existsByEmail(String email) {
-        return khachHangResponsitory.existsByEmail(email);
+        return khachHangRepository.existsByEmail(email);
     }
 
     @Override
     public boolean existsBySdtAndIdNot(String sdt, Long id) {
-        return khachHangResponsitory.existsBySdtAndIdNot(sdt, id);
+        return khachHangRepository.existsBySdtAndIdNot(sdt, id);
     }
 
     //đăng kí khách hàng gửi mật khẩu random về mail
     @Override
     public KhachHang registration(RegisterRequest request) {
 
-        KhachHang khachHang = khachHangResponsitory.save(RegisterRequest.convertToEntity(request));
+        KhachHang khachHang = khachHangRepository.save(RegisterRequest.convertToEntity(request));
         String matKhau = AutoGenCodeRandom.genUUID();
         khachHang.setMatKhau(matKhau);
-        khachHangResponsitory.save(khachHang);
+        khachHangRepository.save(khachHang);
 
         emailService.sendNewAccountKHEmail(khachHang.getEmail(), khachHang.getEmail(), matKhau);
 
@@ -67,7 +67,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 
     @Override
     public List<KhachHang> getAll() {
-        return khachHangResponsitory.findAll();
+        return khachHangRepository.findAll();
     }
 
     @Override
@@ -83,18 +83,18 @@ public class KhachHangServiceImpl implements KhachHangService {
         khachHang.setTichDiem(BigDecimal.ZERO);
         khachHang.setNgaySinh(khachHangRequest.getNgaySinh());
         khachHang.setNgayTao(LocalDate.now());
-        KhachHang khachHangMa = khachHangResponsitory.save(khachHang);
+        KhachHang khachHangMa = khachHangRepository.save(khachHang);
         String ma = "KH" + khachHangMa.getId().toString();
         khachHangMa.setMa(ma);
 
-        return khachHangResponsitory.save(khachHang);
+        return khachHangRepository.save(khachHang);
     }
 
     @Override
     public String delete(Long id) {
-        Optional<KhachHang> khachHangOptional = khachHangResponsitory.findById(id);
+        Optional<KhachHang> khachHangOptional = khachHangRepository.findById(id);
         if (khachHangOptional.isPresent()) {
-            khachHangResponsitory.deleteById(id);
+            khachHangRepository.deleteById(id);
             return "Thành Công!";
         } else {
             return "Không thể xóa khách hàng với id = " + id + ". Không tìm thấy khách hàng.";
@@ -103,17 +103,17 @@ public class KhachHangServiceImpl implements KhachHangService {
 
     @Override
     public boolean checkSdtDuplicate(String sdt) {
-        return khachHangResponsitory.existsKhachHangBySdt(sdt);
+        return khachHangRepository.existsKhachHangBySdt(sdt);
     }
 
     @Override
     public boolean checkEmailDuplicate(String email) {
-        return khachHangResponsitory.existsKhachHangByEmail(email);
+        return khachHangRepository.existsKhachHangByEmail(email);
     }
 
     @Override
     public KhachHang getById(Long id) {
-        Optional<KhachHang> optional = khachHangResponsitory.findById(id);
+        Optional<KhachHang> optional = khachHangRepository.findById(id);
         if (optional.isPresent()) {
             return optional.get();
         } else {
@@ -123,7 +123,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 
     @Override
     public KhachHang getOne(Long id) {
-        Optional<KhachHang> khachHang = khachHangResponsitory.findById(id);
+        Optional<KhachHang> khachHang = khachHangRepository.findById(id);
         return khachHang.orElse(null);
     }
 
@@ -132,7 +132,7 @@ public class KhachHangServiceImpl implements KhachHangService {
         if (khachHangRequest == null) {
             return null;
         }
-        KhachHang existingKhachHang = khachHangResponsitory.getReferenceById(khachHangRequest.getId());
+        KhachHang existingKhachHang = khachHangRepository.getReferenceById(khachHangRequest.getId());
         if (existingKhachHang == null) {
             return null;
         }
@@ -144,7 +144,7 @@ public class KhachHangServiceImpl implements KhachHangService {
         existingKhachHang.setEmail(khachHangRequest.getEmail());
         existingKhachHang.setTrangThai(khachHangRequest.getTrangThai());
         try {
-            khachHangResponsitory.save(existingKhachHang);
+            khachHangRepository.save(existingKhachHang);
             return existingKhachHang;
         } catch (Exception e) {
             return null;
@@ -155,7 +155,7 @@ public class KhachHangServiceImpl implements KhachHangService {
     @Override
     public List<DiaChi> getDiaChiByIdKhachHang(Long idKhachHang) {
         List<DiaChi> list = new ArrayList<>();
-        for (DiaChi dc : diaChiResponsitory.findAll()) {
+        for (DiaChi dc : diaChiRepository.findAll()) {
             if (dc.getKhachHang().getId() == idKhachHang) {
                 list.add(dc);
             }
@@ -166,17 +166,17 @@ public class KhachHangServiceImpl implements KhachHangService {
 
     @Override
     public DiaChi getByIdDiaChi(Long idDiaChi) {
-        return diaChiResponsitory.findById(idDiaChi).orElse(null);
+        return diaChiRepository.findById(idDiaChi).orElse(null);
 
     }
 
     //đổi mật khẩu
     @Override
     public boolean changeUserPassword(Long idKh, String oldPassword, String newPassword) {
-        KhachHang khachHang = khachHangResponsitory.findById(idKh).orElse(null);
+        KhachHang khachHang = khachHangRepository.findById(idKh).orElse(null);
 
         khachHang.setMatKhau(newPassword);
-        khachHangResponsitory.save(khachHang);
+        khachHangRepository.save(khachHang);
         return true;
 
     }
@@ -184,7 +184,7 @@ public class KhachHangServiceImpl implements KhachHangService {
     //quên mật khẩu
     public boolean forgotpassword(String email) {
 
-        KhachHang khachHang = khachHangResponsitory.findByEmail(email).orElse(null);
+        KhachHang khachHang = khachHangRepository.findByEmail(email).orElse(null);
         if (khachHang != null) {
 
             String newPassword = generateRandomPassword(10);
@@ -193,7 +193,7 @@ public class KhachHangServiceImpl implements KhachHangService {
             khachHang.setMatKhau(newPassword); // Lưu mật khẩu không mã hóa
 
 
-            khachHangResponsitory.save(khachHang);
+            khachHangRepository.save(khachHang);
 
             // Gửi email với mật khẩu mới
             emailService.sendPasswordEmail(email, newPassword);

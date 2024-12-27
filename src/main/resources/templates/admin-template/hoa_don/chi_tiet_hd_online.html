@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>BeeStore Admin</title>
+    <title>HMStore Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="keywords"/>
     <meta content="" name="description"/>
 
     <!-- Favicon -->
-    <link href="/../../img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon">    <!-- Google Web Fonts -->
+    <link href="/../../img/hm.jpg" rel="icon">    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -37,7 +37,7 @@
         <nav class="navbar bg-light navbar-light">
             <a th:href="@{/admin/ban-hang}" class="navbar-brand mx-4 mb-3">
 
-                <h3 style="color: orange" ><i class="me-2" ></i>BeeStore </h3>
+                <h3 style="color: orange" ><i class="me-2" ></i>HMStore </h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
@@ -67,7 +67,7 @@
                         <a th:href="@{/admin/thuong-hieu}" class="dropdown-item">* Thương Hiệu</a>
                         <a th:href="@{/admin/mau-sac}" class="dropdown-item">* Màu Sắc</a>
                         <a th:href="@{/admin/kich-thuoc}" class="dropdown-item"> * Kích Thước</a>
-                        <a th:href="@{/admin/de-giay}" class="dropdown-item">* Đế Giày</a>
+                        <a th:href="@{/admin/loai-vai}" class="dropdown-item">* Loại vải</a>
 
                     </div>
                 </div>
@@ -200,9 +200,9 @@
                                 <td th:text="${ghcts.ghiChu}"></td>
 <!--                                <td    th:text="${ghcts.trangThai.getDisplayName()}"></td>-->
                                 <td
-                                        th:if="${(ghcts.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).YEU_CAU_TRA_HANG)
-                                         or(ghcts.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).DA_TRA_HANG)
-                                         or(ghcts.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).TU_CHOI_TRA_HANG)
+                                        th:if="${(ghcts.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).YEU_CAU_TRA_HANG)
+                                         or(ghcts.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).DA_TRA_HANG)
+                                         or(ghcts.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).TU_CHOI_TRA_HANG)
                                         }"
                                         th:text="${ghcts.trangThai.getDisplayName()}"></td>
 
@@ -274,7 +274,7 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item"
-                                           th:if="${hoaDon.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG }"
+                                           th:if="${hoaDon.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG }"
                                            data-bs-toggle="modal"
                                            th:data-bs-target="'#ghiChu1' + ${hoaDon.id}">
                                             Hoàn Trả Và Hoàn Kho
@@ -282,7 +282,7 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item"
-                                           th:if="${hoaDon.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG }"
+                                           th:if="${hoaDon.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG }"
                                            data-bs-toggle="modal"
                                            th:data-bs-target="'#ghiChu2' + ${hoaDon.id}">
                                             Hoàn Trả Và Không Hoàn Kho
@@ -290,7 +290,7 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item"
-                                           th:if="${hoaDon.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG or hoaDon.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DOI_HANG}"
+                                           th:if="${hoaDon.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG or hoaDon.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DOI_HANG}"
                                            data-bs-toggle="modal"
                                            th:data-bs-target="'#huyDon' + ${hoaDon.id}">
                                             Từ chối Trả Hàng

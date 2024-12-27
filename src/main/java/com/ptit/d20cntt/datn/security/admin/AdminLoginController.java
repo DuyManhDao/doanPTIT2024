@@ -67,7 +67,7 @@ public class AdminLoginController {
     @GetMapping("/quen-mat-khau")
     public String QuenMatKhau(Model model) {
 
-        return "admin-template/fogotpassword";
+        return "admin-template/forgotpassword";
 
     }
     @GetMapping("/default")
@@ -75,7 +75,7 @@ public class AdminLoginController {
         if (request.isUserInRole("ROLE_ADMIN")) {
             return "redirect:/admin/ban-hang";
         }
-        return "redirect:/beestore/trang-chu";
+        return "redirect:/hmstore/trang-chu";
 
     }
 

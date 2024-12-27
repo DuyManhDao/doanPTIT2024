@@ -31,7 +31,6 @@ import static jakarta.persistence.EnumType.ORDINAL;
 @Table(name = "khach_hang")
 public class KhachHang {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -69,7 +68,6 @@ public class KhachHang {
     @Column(name = "ngay_sinh", nullable = true)
     private Date ngaySinh;
 
-
     @OneToMany(mappedBy = "khachHang", cascade = CascadeType.ALL)
     private List<DiaChi> listDiaChi;
 
@@ -77,6 +75,5 @@ public class KhachHang {
 
         return this.listDiaChi.get(0).getDiaChi();
     }
-
 
 }

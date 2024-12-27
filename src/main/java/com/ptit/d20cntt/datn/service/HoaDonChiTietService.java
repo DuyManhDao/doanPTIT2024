@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface HoaDonChiTietService {
 
-    List<HoaDonChiTiet> getCtspById(Long id);
+	List<HoaDonChiTiet> getCtspById(Long id);
 }

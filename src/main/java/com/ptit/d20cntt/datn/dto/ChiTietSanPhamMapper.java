@@ -15,7 +15,7 @@ public class ChiTietSanPhamMapper{
         dto.setTenSanPham(entity.getSanPham().getTen());
         dto.setTenDongSanPham(entity.getSanPham().getDongSanPham().getTen());
         dto.setTenThuongHieu(entity.getSanPham().getThuongHieu().getTen());
-        dto.setTenDeGiay(entity.getDeGiay().getTen());
+        dto.setTenLoaiVai(entity.getLoaiVai().getTen());
         dto.setTenMauSac(entity.getMauSac().getTen());
         dto.setTenKichThuoc(entity.getKichThuoc().getTen());
 

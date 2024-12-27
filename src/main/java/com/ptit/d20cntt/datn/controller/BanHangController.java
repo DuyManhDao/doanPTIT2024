@@ -11,7 +11,7 @@ import com.ptit.d20cntt.datn.service.KhachHangService;
 import com.ptit.d20cntt.datn.service.PhieuGiamGiaService;
 import com.ptit.d20cntt.datn.service.impl.PaymentServiceImpl;
 import com.ptit.d20cntt.datn.utils.VNPayUtil;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class BanHangController {
     private Boolean isActive = false;
 
     private Boolean checkHoaDon = false;
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
 
     @Value("${payment.vnPay.employeeReturnUrl}")

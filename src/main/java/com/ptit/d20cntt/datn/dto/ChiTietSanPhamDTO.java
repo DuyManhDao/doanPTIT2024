@@ -15,11 +15,9 @@ public class ChiTietSanPhamDTO {
     private String tenSanPham;
     private String tenThuongHieu;
     private String tenDongSanPham;
-    private String tenDeGiay;
+    private String tenLoaiVai;
     private String tenMauSac;
     private String tenKichThuoc;
-    private String tenLotGiay;
-    private String tenCoGiay;
     private Integer soLuongTon;
     private BigDecimal giaMacDinh;
     private BigDecimal giaBan;

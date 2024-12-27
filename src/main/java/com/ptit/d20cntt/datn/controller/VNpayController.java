@@ -6,7 +6,7 @@ import com.ptit.d20cntt.datn.entity.HoaDon;
 import com.ptit.d20cntt.datn.service.BanHangService;
 import com.ptit.d20cntt.datn.service.BanHangOnlineCtService;
 import com.ptit.d20cntt.datn.service.impl.PaymentServiceImpl;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class VNpayController {
     @Autowired
     private BanHangOnlineCtService banHangCustomerService;
 
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     @Autowired
     private BanHangService banHangService;

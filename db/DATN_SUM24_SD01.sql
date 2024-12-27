@@ -67,8 +67,8 @@ create table anh
         foreign key (id_san_pham) references san_pham (id)
 );
 
--- 5.Đế Giày
-create table de_giay
+-- 5.Loại vải
+create table loai_vai
 (
     id  bigint auto_increment
         primary key,
@@ -165,7 +165,7 @@ create table chi_tiet_san_pham
     ngay_tao      date null,
     so_luong_ton  int null,
     trang_thai    tinyint null,
-    id_de_giay    bigint null,
+    id_loai_vai    bigint null,
     id_kich_thuoc bigint null,
     id_mau_sac    bigint null,
     id_san_pham   bigint null,
@@ -176,7 +176,7 @@ create table chi_tiet_san_pham
     constraint FKhry1oewlwwhwhuqhr1tinw6l6
         foreign key (id_san_pham) references san_pham (id),
     constraint FKtj2f11b2f5l0l8rh9wfnyena2
-        foreign key (id_de_giay) references de_giay (id)
+        foreign key (id_loai_vai) references loai_vai (id)
 );
 
 -- 11.Khách hàng
@@ -278,7 +278,7 @@ create table hoa_don_chi_tiet
 (
     id                   bigint auto_increment
         primary key,
-    de_giay              varchar(255) null,
+    loai_vai              varchar(255) null,
     gia_ban              decimal(65, 2) null,
     kich_thuoc           varchar(255) null,
     mau_sac              varchar(255) null,

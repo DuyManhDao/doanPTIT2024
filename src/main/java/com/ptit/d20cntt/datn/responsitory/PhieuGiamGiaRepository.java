@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 @Repository
-public interface PhieuGiamGiaResponsitory extends JpaRepository<PhieuGiamGia,Long> {
+public interface PhieuGiamGiaRepository extends JpaRepository<PhieuGiamGia,Long> {
 
     @Query("""
                 SELECT pgg FROM PhieuGiamGia pgg

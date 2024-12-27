@@ -30,7 +30,6 @@ public class EmpExcelImpl implements EmpExcelService {
             List.of("id", "ma", "ten", "gioi_tinh", "sdt", "email", "dia_chi", "cccd", "mat_khau", "ngay_tao", "ngay_sua", "trang_thai")
     );
 
-
     public EmpExcelImpl(List<NhanVien> listRecords) {
         this.listRecords = listRecords;
         workbook = new XSSFWorkbook();

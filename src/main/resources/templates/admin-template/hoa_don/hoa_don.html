@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>BeeStore Admin</title>
+    <title>HMStore Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="keywords"/>
     <meta content="" name="description"/>
 
 
 
-    <link href="/../../img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon">
+    <link href="/../../img/hm.jpg" rel="icon">
 
     <!--thư viện css tích tìm kiếm-->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css'>
@@ -119,7 +119,7 @@
         <nav class="navbar bg-light navbar-light">
             <a th:href="@{/admin/ban-hang}" class="navbar-brand mx-4 mb-3">
 
-                <h3 style="color: orange" ><i class="me-2" ></i>BeeStore </h3>
+                <h3 style="color: orange" ><i class="me-2" ></i>HMStore </h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
@@ -149,7 +149,7 @@
                         <a th:href="@{/admin/thuong-hieu}" class="dropdown-item">* Thương Hiệu</a>
                         <a th:href="@{/admin/mau-sac}" class="dropdown-item">* Màu Sắc</a>
                         <a th:href="@{/admin/kich-thuoc}" class="dropdown-item"> * Kích Thước</a>
-                        <a th:href="@{/admin/de-giay}" class="dropdown-item">* Đế Giày</a>
+                        <a th:href="@{/admin/loai-vai}" class="dropdown-item">* Loại vải</a>
 
                     </div>
                 </div>
@@ -430,47 +430,47 @@
 <!--                            </tr>-->
 <tr th:each="hd,state : ${hoadons}">
     <td>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}" th:text="${state.index+1}"
            style="color: black;"></a>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}" th:text="${state.index+1}"
            style="color: black;"></a>
     </td>
     <td>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}" th:text="${hd.ma}"
            style="color: black;"></a>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}" th:text="${hd.ma}"
            style="color: black;"></a>
     </td>
     <td>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}"
            th:text="${hd.loaiHoaDon.getDisplayName()}"
            style="color: black;"></a>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}"
            th:text="${hd.loaiHoaDon.getDisplayName()}"
            style="color: black;"></a>
     </td>
     <td>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}"
            th:text="${hd.trangThai.getDisplayName()}"
            style="color: black;"></a>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}"
            th:text="${hd.trangThai.getDisplayName()}"
            style="color: black;"></a>
     </td>
     <td>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}"
            th:text="${#numbers.formatDecimal(hd.thanhToan ?: 0, 0, 'POINT', 0, 'COMMA')} + ' VND'"
            style="color: black;"></a>
-        <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
+        <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"
            th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}"
            th:text="${#numbers.formatDecimal(hd.thanhToan ?: 0, 0, 'POINT', 0, 'COMMA')} + ' VND'"
            style="color: black;"></a>
@@ -478,30 +478,30 @@
     <td>
         <div style="display: flex; align-items: center;">
             <button class="btn btn-outline-success"
-                    th:if="${hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE}"
+                    th:if="${hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE}"
                     data-bs-toggle="modal"
                     th:data-bs-target="'#ghiChu' + ${hd.id}"
-                    th:disabled="${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).HOAN_THANH}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_TRA_HANG}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DOI_HANG}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_HUY}"
+                    th:disabled="${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).HOAN_THANH}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_TRA_HANG}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DOI_HANG}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_HUY}"
                     style="margin-right: 10px;">
 
                 Xác nhận
             </button>
 <!--c           làm mờ nút hủy đơn hàng đối với các trạng thái trên -->
             <button class="btn btn-outline-danger"
-                    th:if="${hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE}"
+                    th:if="${hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE}"
                     data-bs-toggle="modal"
                     th:data-bs-target="'#huyDon' + ${hd.id}"
-                    th:disabled="${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).HOAN_THANH}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_TRA_HANG}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DANG_GIAO}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_GIAO}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DOI_HANG}
-                or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_HUY}"
+                    th:disabled="${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).HOAN_THANH}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_TRA_HANG}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DANG_GIAO}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_GIAO}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DOI_HANG}
+                or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_HUY}"
                     style="margin-left: 3px;">
 
                 Huỷ Đơn

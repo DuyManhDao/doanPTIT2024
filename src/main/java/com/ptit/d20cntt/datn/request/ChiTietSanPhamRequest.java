@@ -27,7 +27,7 @@ public class ChiTietSanPhamRequest {
 
         private int trangThai;
 
-        private Long deGiay;
+        private Long loaiVai;
 
         private Long kichThuoc;
 

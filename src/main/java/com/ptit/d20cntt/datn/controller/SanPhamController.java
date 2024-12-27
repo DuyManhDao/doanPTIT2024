@@ -11,7 +11,7 @@ import com.ptit.d20cntt.datn.service.DongSanPhamService;
 import com.ptit.d20cntt.datn.service.NhaCungCapService;
 import com.ptit.d20cntt.datn.service.SanPhamService;
 import com.ptit.d20cntt.datn.service.ThuongHieuService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -46,7 +46,7 @@ public class SanPhamController {
 
     List<TrangThai> list = new ArrayList<>(Arrays.asList(TrangThai.DANG_HOAT_DONG, TrangThai.DUNG_HOAT_DONG));
 
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     @GetMapping()
     public String hienThi(Model model) {
@@ -56,8 +56,6 @@ public class SanPhamController {
         }
 
         model.addAttribute("tenNhanVien",spingsecurity.getCurrentNhanVienTen());
-
-
         model.addAttribute("listSanPham", sanPhamService.getAll());
         model.addAttribute("index", pageNo + 1);
         model.addAttribute("trangThais", list);

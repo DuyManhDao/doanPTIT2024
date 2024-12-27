@@ -20,8 +20,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "de_giay")
-public class DeGiay {
+@Table(name = "loai_vai")
+public class LoaiVai {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,7 @@ public class DeGiay {
     @Column(name = "ten", nullable = false, unique = true)
     @NotBlank(message = "Tên không được để trống")
     private String ten;
+
     @Column(name = "ngay_sua")
     private LocalDateTime ngaySua;
 

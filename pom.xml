@@ -11,8 +11,8 @@
     <groupId>com.example</groupId>
     <artifactId>ptit-datn-2024</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>DATN-SUM24-SD01</name>
-    <description>DATN-SUM24-SD01</description>
+    <name>ptit-datn-2024</name>
+    <description>ptit-datn-2024</description>
     <properties>
         <java.version>17</java.version>
     </properties>
