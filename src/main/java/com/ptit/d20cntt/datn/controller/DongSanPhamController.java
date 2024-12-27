@@ -5,7 +5,7 @@ import com.ptit.d20cntt.datn.entity.DongSanPham;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.DongSanPhamRequest;
 import com.ptit.d20cntt.datn.service.DongSanPhamService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import java.util.List;
 public class DongSanPhamController {
 
     private final DongSanPhamService dongSanPhamService;
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     public DongSanPhamController(DongSanPhamService dongSanPhamService) {
         this.dongSanPhamService = dongSanPhamService;

@@ -9,24 +9,24 @@ import java.util.List;
 
 public interface SanPhamService {
 
-    List<SanPham> getList();
+	List<SanPham> getList();
 
-    List<SanPhamCustom> getAll();
+	List<SanPhamCustom> getAll();
 
-    List<SanPhamCustom> getByTrangThai(TrangThai trangThai);
+	List<SanPhamCustom> getByTrangThai(TrangThai trangThai);
 
-    SanPham save(SanPhamRequest request);
+	SanPham save(SanPhamRequest request);
 
-    SanPham update(SanPhamRequest request);
+	SanPham update(SanPhamRequest request);
 
-    SanPham findById(Long id);
+	SanPham findById(Long id);
 
-    boolean existByMa(String ma);
+	boolean existByMa(String ma);
 
-    boolean existsByTen(String ten);
+	boolean existsByTen(String ten);
 
-    boolean existsByTenAndIdNot(String ten, Long id);
+	boolean existsByTenAndIdNot(String ten, Long id);
 
-    String delete(Long id);
+	String delete(Long id);
 
 }

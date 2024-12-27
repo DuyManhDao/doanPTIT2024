@@ -6,7 +6,7 @@ import com.ptit.d20cntt.datn.dto.ChiTietSanPhamDTO;
 import com.ptit.d20cntt.datn.dto.ChiTietSanPhamMapper;
 import com.ptit.d20cntt.datn.entity.ChiTietSanPham;
 import com.ptit.d20cntt.datn.entity.SanPham;
-import com.ptit.d20cntt.datn.responsitory.BanHangOnlineResponsitory;
+import com.ptit.d20cntt.datn.responsitory.BanHangOnlineRepository;
 import com.ptit.d20cntt.datn.service.BanHangOnlineCustomService;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 public class BanHangOnlineServiceImpl  implements BanHangOnlineCustomService {
     //phân trang trong shop
     @Autowired
-    private BanHangOnlineResponsitory repository;
+    private BanHangOnlineRepository repository;
 
     @Override
     public Page<ChiTietSanPham> pageAllInShop(Integer pageNo, Integer size) {
@@ -92,7 +92,7 @@ public class BanHangOnlineServiceImpl  implements BanHangOnlineCustomService {
             List<String> tenThuongHieu,
             List<String> tenDongSanPham,
             List<String> tenKichThuoc,
-            List<String> tenDeGiay,
+            List<String> tenLoaiVai,
             List<String> tenMauSac,
             Double minGia,
             Double maxGia,
@@ -113,8 +113,8 @@ public class BanHangOnlineServiceImpl  implements BanHangOnlineCustomService {
             if (tenDongSanPham != null && !tenDongSanPham.isEmpty()) {
                 predicates.add(sanPhamJoin.get("dongSanPham").get("ten").in(tenDongSanPham));
             }
-            if (tenDeGiay != null && !tenDeGiay.isEmpty()) {
-                predicates.add(root.get("deGiay").get("ten").in(tenDeGiay));
+            if (tenLoaiVai != null && !tenLoaiVai.isEmpty()) {
+                predicates.add(root.get("loaiVai").get("ten").in(tenLoaiVai));
             }
             if (tenKichThuoc != null && !tenKichThuoc.isEmpty()) {
                 predicates.add(root.get("kichThuoc").get("ten").in(tenKichThuoc));
@@ -139,7 +139,7 @@ public class BanHangOnlineServiceImpl  implements BanHangOnlineCustomService {
             return cb.and(predicates.toArray(new Predicate[0]));
         };
 
-        // Sử dụng ChiTietGiayRepository và PageRequest để lấy kết quả phân trang
+        // Sử dụng ChiTietSanPhamRepository và PageRequest để lấy kết quả phân trang
         Sort sort = Sort.unsorted();
 
         if ("sapXepTheoGiaBanCaoDenThap".equals(sortField)) {

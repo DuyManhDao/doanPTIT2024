@@ -1,4 +1,4 @@
-package com.ptit.d20cntt.datn.Report;
+package com.ptit.d20cntt.datn.report;
 
 
 import com.ptit.d20cntt.datn.entity.NhanVien;

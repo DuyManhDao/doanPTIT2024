@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ThuongHieuResponsitory extends JpaRepository<ThuongHieu,Long> {
+public interface ThuongHieuRepository extends JpaRepository<ThuongHieu,Long> {
 
     @Query("""
                 SELECT th FROM ThuongHieu th

@@ -6,7 +6,7 @@ import com.ptit.d20cntt.datn.entity.HoaDon;
 import com.ptit.d20cntt.datn.enumation.LoaiHoaDon;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.enumation.TrangThaiDonHang;
-import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamResponsitory;
+import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamRepository;
 import com.ptit.d20cntt.datn.responsitory.GioHangChiTietRepository;
 import com.ptit.d20cntt.datn.responsitory.HoaDonRepo;
 import com.ptit.d20cntt.datn.sendmail.EmailService;
@@ -28,13 +28,13 @@ public class HoaDonServiceImpl implements HoaDonService {
     private final HoaDonRepo repository;
     private final GioHangChiTietRepository gioHangChiTietRepository;
 
-    private final ChiTietSanPhamResponsitory chiTietSanPhamRepository;
+    private final ChiTietSanPhamRepository chiTietSanPhamRepository;
     private final EmailService sendMailService;
 
 
     private final BanHangService banHangService;
 
-    public HoaDonServiceImpl(HoaDonRepo repository,GioHangChiTietRepository gioHangChiTietRepository,  ChiTietSanPhamResponsitory chiTietSanPhamRepository, EmailService sendMailService,  BanHangService banHangService) {
+    public HoaDonServiceImpl(HoaDonRepo repository, GioHangChiTietRepository gioHangChiTietRepository, ChiTietSanPhamRepository chiTietSanPhamRepository, EmailService sendMailService, BanHangService banHangService) {
         this.repository = repository;
         this.gioHangChiTietRepository = gioHangChiTietRepository;
         this.chiTietSanPhamRepository = chiTietSanPhamRepository;

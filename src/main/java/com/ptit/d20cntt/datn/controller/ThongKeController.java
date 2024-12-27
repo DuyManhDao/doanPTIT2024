@@ -11,7 +11,7 @@ import com.ptit.d20cntt.datn.service.HoaDonService;
 import com.ptit.d20cntt.datn.service.KhachHangService;
 import com.ptit.d20cntt.datn.service.NhanVienService;
 import com.ptit.d20cntt.datn.service.ThongKeService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -54,7 +54,7 @@ public class ThongKeController {
 
     }
 
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
     /**
      * Thống Kê
      * @param model

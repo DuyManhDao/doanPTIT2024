@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface KhachHangResponsitory extends JpaRepository<KhachHang,Long> {
+public interface KhachHangRepository extends JpaRepository<KhachHang,Long> {
     @Query("""
                 SELECT kh FROM KhachHang kh
                 WHERE 

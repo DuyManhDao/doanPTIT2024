@@ -6,17 +6,17 @@ import com.ptit.d20cntt.datn.request.MauSacRequest;
 import java.util.List;
 
 public interface MauSacService {
-    List<MauSac> getAllMauSac();
+	List<MauSac> getAllMauSac();
 
-    MauSac add(MauSacRequest mauSacRequest);
+	MauSac add(MauSacRequest mauSacRequest);
 
-    String delete(Long id);
+	String delete(Long id);
 
-    MauSac getOne(Long id);
+	MauSac getOne(Long id);
 
-    MauSac findById(Long id);
+	MauSac findById(Long id);
 
-    MauSac update(MauSac mauSac);
+	MauSac update(MauSac mauSac);
 
-    List<MauSac> findByProductAndSize(Long productId, Long size);
+	List<MauSac> findByProductAndSize(Long productId, Long size);
 }

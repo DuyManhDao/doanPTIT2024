@@ -29,5 +29,5 @@ public interface BanHangOnlineCustomService {
 
     public List<ChiTietSanPhamDTO> convertToDTOList(List<ChiTietSanPham> chiTietSanPhamList);
 
-    Page<ChiTietSanPhamDTO> findAllByCondition(List<String> tenThuongHieu, List<String> tenDongSanPham, List<String> tenKichThuoc, List<String> tenDeGiay, List<String> tenMauSac, Double minGia, Double maxGia, int page, int pageSize, String sortField, String tenSanPham);
+    Page<ChiTietSanPhamDTO> findAllByCondition(List<String> tenThuongHieu, List<String> tenDongSanPham, List<String> tenKichThuoc, List<String> tenLoaiVai, List<String> tenMauSac, Double minGia, Double maxGia, int page, int pageSize, String sortField, String tenSanPham);
 }

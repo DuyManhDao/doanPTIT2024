@@ -1,16 +1,13 @@
 package com.ptit.d20cntt.datn.service.impl;
 
-import com.ptit.d20cntt.datn.entity.ChiTietSanPham;
-import com.ptit.d20cntt.datn.entity.DeGiay;
-import com.ptit.d20cntt.datn.entity.KichThuoc;
-import com.ptit.d20cntt.datn.entity.MauSac;
-import com.ptit.d20cntt.datn.entity.SanPham;
+import com.ptit.d20cntt.datn.entity.*;
+import com.ptit.d20cntt.datn.entity.LoaiVai;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.ChiTietSanPhamRequest;
-import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamResponsitory;
-import com.ptit.d20cntt.datn.responsitory.DeGiayResponsitory;
-import com.ptit.d20cntt.datn.responsitory.KichThuocResponsitroy;
-import com.ptit.d20cntt.datn.responsitory.MauSacResponsitory;
+import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamRepository;
+import com.ptit.d20cntt.datn.responsitory.LoaiVaiRepository;
+import com.ptit.d20cntt.datn.responsitory.KichThuocRepository;
+import com.ptit.d20cntt.datn.responsitory.MauSacRepository;
 import com.ptit.d20cntt.datn.responsitory.SanPhamRepository;
 import com.ptit.d20cntt.datn.service.ChiTietSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +24,18 @@ import java.util.stream.Collectors;
 @Service
 public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
 
-    private final ChiTietSanPhamResponsitory repository;
-    private final DeGiayResponsitory deGiayRepository;
-    private final KichThuocResponsitroy kichThuocRepository;
-    private final MauSacResponsitory mauSacRepository;
+    private final ChiTietSanPhamRepository repository;
+    private final LoaiVaiRepository loaiVaiRepository;
+    private final KichThuocRepository kichThuocRepository;
+    private final MauSacRepository mauSacRepository;
     private final SanPhamRepository sanPhamRepository;
 
     @Autowired
-    private ChiTietSanPhamResponsitory chiTietSanPhamRepository;
+    private ChiTietSanPhamRepository chiTietSanPhamRepository;
 
-    public ChiTietSanPhamServiceImpl(ChiTietSanPhamResponsitory repository, DeGiayResponsitory deGiayRepository, KichThuocResponsitroy kichThuocRepository, MauSacResponsitory mauSacRepository, SanPhamRepository sanPhamRepository) {
+    public ChiTietSanPhamServiceImpl(ChiTietSanPhamRepository repository, LoaiVaiRepository loaiVaiRepository, KichThuocRepository kichThuocRepository, MauSacRepository mauSacRepository, SanPhamRepository sanPhamRepository) {
         this.repository = repository;
-        this.deGiayRepository = deGiayRepository;
+        this.loaiVaiRepository = loaiVaiRepository;
         this.kichThuocRepository = kichThuocRepository;
         this.mauSacRepository = mauSacRepository;
         this.sanPhamRepository = sanPhamRepository;
@@ -81,8 +78,8 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
         chiTietSanPham.setSoLuongTon(chiTietSanPhamRequest.getSoLuongTon());
         SanPham sanPham = sanPhamRepository.findById(chiTietSanPhamRequest.getSanPham()).orElse(null);
         chiTietSanPham.setSanPham(sanPham);
-        DeGiay deGiay = deGiayRepository.findById(chiTietSanPhamRequest.getDeGiay()).orElse(null);
-        chiTietSanPham.setDeGiay(deGiay);
+        LoaiVai loaiVai = loaiVaiRepository.findById(chiTietSanPhamRequest.getLoaiVai()).orElse(null);
+        chiTietSanPham.setLoaiVai(loaiVai);
         KichThuoc kichThuoc = kichThuocRepository.findById(chiTietSanPhamRequest.getKichThuoc()).orElse(null);
         chiTietSanPham.setKichThuoc(kichThuoc);
         MauSac mauSac = mauSacRepository.findById(chiTietSanPhamRequest.getMauSac()).orElse(null);

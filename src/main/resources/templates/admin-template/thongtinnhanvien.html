@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>BeeStore Admin</title>
+    <title>HMStore Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="keywords"/>
     <meta content="" name="description"/>
 
     <!-- Favicon -->
-    <link href="/../../img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon">
+    <link href="/../../img/hm.jpg" rel="icon">
     <!--thư viện css tích tìm kiếm-->
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css'>
@@ -124,7 +124,7 @@
         <nav class="navbar bg-light navbar-light">
             <a th:href="@{/admin/ban-hang}" class="navbar-brand mx-4 mb-3">
 
-                <h3 style="color: orange"><i class="me-2"></i>BeeStore </h3>
+                <h3 style="color: orange"><i class="me-2"></i>HMStore </h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
@@ -154,7 +154,7 @@
                         <a th:href="@{/admin/thuong-hieu}" class="dropdown-item">* Thương Hiệu</a>
                         <a th:href="@{/admin/mau-sac}" class="dropdown-item">* Màu Sắc</a>
                         <a th:href="@{/admin/kich-thuoc}" class="dropdown-item"> * Kích Thước</a>
-                        <a th:href="@{/admin/de-giay}" class="dropdown-item">* Đế Giày</a>
+                        <a th:href="@{/admin/loai-vai}" class="dropdown-item">* Loại vải</a>
 
                     </div>
                 </div>
@@ -229,12 +229,12 @@
 
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Số Điện Thoại</span>
+                    <span class="input-group-text" id="basic-addon2">Số Điện Thoại</span>
                     <input type="text" class="form-control" placeholder="Username" aria-label="Username"
                            aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Giới Tính</span>
+                    <span class="input-group-text" id="basic-addon3">Giới Tính</span>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="namRadio" name="gioiTinh" value="1"
                                th:field="*{gioiTinh}" th:checked="${gioiTinh == 1}"/>
@@ -247,14 +247,14 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Tên Nhân Viên</span>
+                    <span class="input-group-text" id="basic-addon4">Tên Nhân Viên</span>
                     <input type="text" class="form-control" placeholder="Username" aria-label="Username"
                            aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Recipient's username"
                            aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <span class="input-group-text" id="basic-addon2">@example.com</span>
+                    <span class="input-group-text" id="basic-addon5">@example.com</span>
                 </div>
 
 

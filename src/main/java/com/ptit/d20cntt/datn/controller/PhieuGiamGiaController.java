@@ -6,7 +6,7 @@ import com.ptit.d20cntt.datn.enumation.TrangThaiPhieuKhuyenMai;
 import com.ptit.d20cntt.datn.request.PhieuGiamGiaRequest;
 import com.ptit.d20cntt.datn.service.NhanVienService;
 import com.ptit.d20cntt.datn.service.PhieuGiamGiaService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -37,7 +37,7 @@ public class PhieuGiamGiaController {
 //    private EmailService emailService;
 
     List<TrangThaiPhieuKhuyenMai> list = new ArrayList<>(Arrays.asList(TrangThaiPhieuKhuyenMai.DANG_DIEN_RA, TrangThaiPhieuKhuyenMai.DA_KET_THUC, TrangThaiPhieuKhuyenMai.SAP_DIEN_RA));
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     @GetMapping()
     public String getAllphieukhuyenmai(Model model) {

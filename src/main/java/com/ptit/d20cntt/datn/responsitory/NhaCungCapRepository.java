@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface NhaCungCapResponsitory extends JpaRepository<NhaCungCap,Long> {
+public interface NhaCungCapRepository extends JpaRepository<NhaCungCap,Long> {
 
     @Query("""
                 SELECT dsp FROM NhaCungCap dsp

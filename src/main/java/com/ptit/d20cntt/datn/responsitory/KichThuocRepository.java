@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface KichThuocResponsitroy extends JpaRepository<KichThuoc,Long> {
+public interface KichThuocRepository extends JpaRepository<KichThuoc,Long> {
 
 
     @Query(value = "SELECT kt.* FROM kich_thuoc kt " +

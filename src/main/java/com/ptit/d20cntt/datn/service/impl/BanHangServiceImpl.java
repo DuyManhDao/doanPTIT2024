@@ -9,12 +9,12 @@ import com.ptit.d20cntt.datn.entity.NhanVien;
 import com.ptit.d20cntt.datn.entity.PhieuGiamGia;
 import com.ptit.d20cntt.datn.enumation.LoaiHoaDon;
 import com.ptit.d20cntt.datn.enumation.TrangThaiDonHang;
-import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamResponsitory;
+import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamRepository;
 import com.ptit.d20cntt.datn.responsitory.HoaDonChiTietRepository;
 import com.ptit.d20cntt.datn.responsitory.HoaDonRepository;
-import com.ptit.d20cntt.datn.responsitory.KhachHangResponsitory;
+import com.ptit.d20cntt.datn.responsitory.KhachHangRepository;
 import com.ptit.d20cntt.datn.responsitory.NhanVienRepository;
-import com.ptit.d20cntt.datn.responsitory.PhieuGiamGiaResponsitory;
+import com.ptit.d20cntt.datn.responsitory.PhieuGiamGiaRepository;
 import com.ptit.d20cntt.datn.service.BanHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,13 +36,13 @@ public class BanHangServiceImpl implements BanHangService {
     private HoaDonChiTietRepository hoaDonChiTietRepository;
 
     @Autowired
-    private ChiTietSanPhamResponsitory chiTietSanPhamRepository;
+    private ChiTietSanPhamRepository chiTietSanPhamRepository;
 
     @Autowired
-    private KhachHangResponsitory khachHangRepository;
+    private KhachHangRepository khachHangRepository;
 
     @Autowired
-    private PhieuGiamGiaResponsitory maGiamGiaRepository;
+    private PhieuGiamGiaRepository maGiamGiaRepository;
 
     @Autowired
     private NhanVienRepository nhanVienRepository;
@@ -126,7 +126,7 @@ public class BanHangServiceImpl implements BanHangService {
         hoaDonChiTiet = HoaDonChiTiet.builder()
                 .hoaDon(hoaDon)
                 .chiTietSanPham(chiTietSanPham)
-                .deGiay(chiTietSanPham.getDeGiay().getTen())
+                .loaiVai(chiTietSanPham.getLoaiVai().getTen())
                 .kichThuoc(chiTietSanPham.getKichThuoc().getTen())
                 .mauSac(chiTietSanPham.getMauSac().getTen())
                 .tenSanPham(chiTietSanPham.getSanPham().getTen())

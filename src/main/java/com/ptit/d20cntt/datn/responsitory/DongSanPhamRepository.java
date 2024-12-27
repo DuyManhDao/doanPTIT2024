@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface DongSanPhamResponsitory extends JpaRepository<DongSanPham,Long> {
+public interface DongSanPhamRepository extends JpaRepository<DongSanPham,Long> {
 
 
     @Query("""

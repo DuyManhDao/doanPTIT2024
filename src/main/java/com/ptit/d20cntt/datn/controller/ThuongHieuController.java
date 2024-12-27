@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.controller;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.ThuongHieuRequest;
 import com.ptit.d20cntt.datn.service.ThuongHieuService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin/thuong-hieu")
 public class ThuongHieuController {
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     private final ThuongHieuService thuongHieuService;
 
@@ -33,8 +33,6 @@ public class ThuongHieuController {
     Integer pageNo = 0;
 
     List<TrangThai> list = new ArrayList<>(Arrays.asList(TrangThai.DANG_HOAT_DONG, TrangThai.DUNG_HOAT_DONG));
-
-
 
     @GetMapping()
     public String getAllTH(Model model) {

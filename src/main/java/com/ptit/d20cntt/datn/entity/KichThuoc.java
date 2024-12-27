@@ -34,6 +34,7 @@ public class KichThuoc {
     @Column(name = "ten", nullable = false, unique = true)
     @NotBlank(message = "Tên không được để trống")
     private String ten;
+
     @Column(name = "ngay_sua")
     private LocalDateTime ngaySua;
 

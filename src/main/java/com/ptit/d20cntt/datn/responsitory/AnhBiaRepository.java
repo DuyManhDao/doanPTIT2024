@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AnhBiaResponsitory extends JpaRepository<AnhBia,Long> {
+public interface AnhBiaRepository extends JpaRepository<AnhBia,Long> {
     List<AnhBia> findBySanPham(SanPham sanPham);
 
     List<AnhBia> findBySanPhamId(Long id);

@@ -7,10 +7,10 @@ import com.ptit.d20cntt.datn.entity.SanPham;
 import com.ptit.d20cntt.datn.entity.ThuongHieu;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.SanPhamRequest;
-import com.ptit.d20cntt.datn.responsitory.DongSanPhamResponsitory;
-import com.ptit.d20cntt.datn.responsitory.NhaCungCapResponsitory;
+import com.ptit.d20cntt.datn.responsitory.DongSanPhamRepository;
+import com.ptit.d20cntt.datn.responsitory.NhaCungCapRepository;
 import com.ptit.d20cntt.datn.responsitory.SanPhamRepository;
-import com.ptit.d20cntt.datn.responsitory.ThuongHieuResponsitory;
+import com.ptit.d20cntt.datn.responsitory.ThuongHieuRepository;
 import com.ptit.d20cntt.datn.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -23,15 +23,15 @@ import java.util.Optional;
 @Service
 public class SanPhamServiceImpl implements SanPhamService {
     private final SanPhamRepository repository;
-    private final NhaCungCapResponsitory nhaCungCapResponsitory;
-    private final ThuongHieuResponsitory thuongHieuRepository;
-    private final DongSanPhamResponsitory dongSanPhamResponsitory;
+    private final NhaCungCapRepository nhaCungCapRepository;
+    private final ThuongHieuRepository thuongHieuRepository;
+    private final DongSanPhamRepository dongSanPhamRepository;
 
-    public SanPhamServiceImpl(SanPhamRepository repository, DongSanPhamResponsitory dongSanPhamResponsitory, NhaCungCapResponsitory nhaCungCapResponsitory, ThuongHieuResponsitory thuongHieuRepository, DongSanPhamResponsitory dongSanPhamResponsitory1) {
+    public SanPhamServiceImpl(SanPhamRepository repository, DongSanPhamRepository dongSanPhamRepository, NhaCungCapRepository nhaCungCapRepository, ThuongHieuRepository thuongHieuRepository, DongSanPhamRepository dongSanPhamRepository1) {
         this.repository = repository;
-        this.nhaCungCapResponsitory = nhaCungCapResponsitory;
+        this.nhaCungCapRepository = nhaCungCapRepository;
         this.thuongHieuRepository = thuongHieuRepository;
-        this.dongSanPhamResponsitory = dongSanPhamResponsitory;
+        this.dongSanPhamRepository = dongSanPhamRepository;
     }
 
     @Autowired
@@ -64,11 +64,11 @@ public class SanPhamServiceImpl implements SanPhamService {
         sanPham.setMoTa(request.getMoTa());
         sanPham.setListAnhSanPham(request.getListAnh());
         sanPham.setAnhChinh(request.getAnhChinh());
-        NhaCungCap nhaCungCap = nhaCungCapResponsitory.findById(request.getNhaCungCap()).orElse(null);
+        NhaCungCap nhaCungCap = nhaCungCapRepository.findById(request.getNhaCungCap()).orElse(null);
         sanPham.setNhaCungCap(nhaCungCap);
         ThuongHieu thuongHieu = thuongHieuRepository.findById(request.getThuongHieu()).orElse(null);
         sanPham.setThuongHieu(thuongHieu);
-        DongSanPham dongSanPham = dongSanPhamResponsitory.findById(request.getDongSanPham()).orElse(null);
+        DongSanPham dongSanPham = dongSanPhamRepository.findById(request.getDongSanPham()).orElse(null);
         sanPham.setDongSanPham(dongSanPham);
 
         sanPham.setNgayTao(LocalDate.now());
@@ -87,11 +87,11 @@ public class SanPhamServiceImpl implements SanPhamService {
             sanPham.setMoTa(request.getMoTa());
             sanPham.setListAnhSanPham(request.getListAnh());
             sanPham.setAnhChinh(request.getAnhChinh());
-            NhaCungCap nhaCungCap = nhaCungCapResponsitory.findById(request.getNhaCungCap()).orElse(null);
+            NhaCungCap nhaCungCap = nhaCungCapRepository.findById(request.getNhaCungCap()).orElse(null);
             sanPham.setNhaCungCap(nhaCungCap);
             ThuongHieu thuongHieu = thuongHieuRepository.findById(request.getThuongHieu()).orElse(null);
             sanPham.setThuongHieu(thuongHieu);
-            DongSanPham dongSanPham = dongSanPhamResponsitory.findById(request.getDongSanPham()).orElse(null);
+            DongSanPham dongSanPham = dongSanPhamRepository.findById(request.getDongSanPham()).orElse(null);
             sanPham.setDongSanPham(dongSanPham);
             sanPham.setNgaySua(LocalDate.now());
             sanPham.setTrangThai(request.getTrangThai());

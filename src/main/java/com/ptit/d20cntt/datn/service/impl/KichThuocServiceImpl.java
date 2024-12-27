@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.KichThuoc;
 import com.ptit.d20cntt.datn.request.KichThuocRequest;
-import com.ptit.d20cntt.datn.responsitory.KichThuocResponsitroy;
+import com.ptit.d20cntt.datn.responsitory.KichThuocRepository;
 import com.ptit.d20cntt.datn.service.KhichThuocService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 public class KichThuocServiceImpl implements KhichThuocService {
     @Autowired
-    private KichThuocResponsitroy kichThuocRepository;
+    private KichThuocRepository kichThuocRepository;
 
     @Override
     public List<KichThuoc> getAllKichThuoc() {

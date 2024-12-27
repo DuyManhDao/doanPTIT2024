@@ -9,13 +9,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class DeGiayRequest {
+public class LoaiVaiRequest {
 
     private Long id;
 
     private String ma;
 
     private LocalDateTime ngaySua;
+
     private LocalDateTime ngayTao;
 
     @NotEmpty(message = "Tên không được để trống!")

@@ -9,7 +9,7 @@ public interface ChiTietSanPhamCustomerCt {
 
     String getTenSp();
 
-    String getTenDe_giay();
+    String getTenLoaiVai();
 
     String getTenDongSp();
 

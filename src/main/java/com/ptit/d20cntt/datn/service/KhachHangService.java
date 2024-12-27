@@ -9,33 +9,39 @@ import java.util.List;
 
 
 public interface KhachHangService {
-    //    List<KhachHang> getByTrangThai(TrangThai trangThai);
-    List<KhachHang> getList();
-    boolean existsBySdt(String sdt);
+	//    List<KhachHang> getByTrangThai(TrangThai trangThai);
+	List<KhachHang> getList();
 
-    boolean existsByEmail(String email);
+	boolean existsBySdt(String sdt);
 
-    boolean existsBySdtAndIdNot(String sdt,Long id);
-    KhachHang registration(RegisterRequest khachHang);
-    List<KhachHang> getAll();
+	boolean existsByEmail(String email);
 
-    KhachHang add(KhachHangRequest khachHangRequest);
+	boolean existsBySdtAndIdNot(String sdt, Long id);
 
-    String delete(Long id);
+	KhachHang registration(RegisterRequest khachHang);
 
-    boolean checkSdtDuplicate(String sdt);
+	List<KhachHang> getAll();
+
+	KhachHang add(KhachHangRequest khachHangRequest);
+
+	String delete(Long id);
+
+	boolean checkSdtDuplicate(String sdt);
 
 
-    boolean checkEmailDuplicate(String email);
-    KhachHang getById(Long id);
+	boolean checkEmailDuplicate(String email);
 
-    KhachHang getOne(Long id);
+	KhachHang getById(Long id);
 
-    KhachHang update(KhachHangRequest khachHangRequest);
+	KhachHang getOne(Long id);
 
-    List<DiaChi> getDiaChiByIdKhachHang(Long idKhachHang);
+	KhachHang update(KhachHangRequest khachHangRequest);
 
-    DiaChi getByIdDiaChi(Long idDiaChi);
-    boolean changeUserPassword(Long idKh,String oldPassword, String newPassword);
-    boolean forgotpassword(String newPassword);
+	List<DiaChi> getDiaChiByIdKhachHang(Long idKhachHang);
+
+	DiaChi getByIdDiaChi(Long idDiaChi);
+
+	boolean changeUserPassword(Long idKh, String oldPassword, String newPassword);
+
+	boolean forgotpassword(String newPassword);
 }

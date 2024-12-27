@@ -14,7 +14,7 @@
             name="viewport"
     />
     <meta content="Untree.co" name="author"/>
-    <link href="../..img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon"/>
+    <link href="../..img/hm.jpg" rel="icon"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <meta content="" name="description"/>
@@ -30,9 +30,9 @@
     <link href="/../css/customer/tiny-slider.css" rel="stylesheet"/>
     <link href="/../css/customer/shop.css" rel="stylesheet"/>
     <link href="/../css/customer/detail.css" rel="stylesheet"/>
-    <link href="/../../img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon">
+    <link href="/../../img/hm.jpg" rel="icon">
     <title>
-        BeeStore
+        HMStore
     </title>
 
     <style>
@@ -142,11 +142,11 @@
 <!-- Start Header/Navigation -->
 <nav arial-label="Furni navigation bar" class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" th:href="@{/beestore/trang-chu}">
+        <a class="navbar-brand" th:href="@{/hmstore/trang-chu}">
             <img style="height: 50px; width: 50px;"
-                 th:src="@{/img/e77e3572384e5c9af495d1acfbfa6f70.jpg}">
+                 th:src="@{/img/hm.jpg}">
             <a class="navbar-brand"
-               th:href="@{/beestore/trang-chu}">BeeStore</a></a>
+               th:href="@{/hmstore/trang-chu}">HMStore</a></a>
 
         <button aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
                 data-bs-target="#navbarsFurni" data-bs-toggle="collapse" type="button">
@@ -157,12 +157,12 @@
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="active">
-                    <a class="nav-link" th:href="@{/beestore/trang-chu}">Trang chủ</a>
+                    <a class="nav-link" th:href="@{/hmstore/trang-chu}">Trang chủ</a>
                 </li>
-                <li><a class="nav-link" th:href="@{/beestore/cua-hang}">Cửa hàng</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/dichvu}">Dịch vụ</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/thongtin}">Thông tin</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/lienhe}">Liên hệ</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/cua-hang}">Cửa hàng</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/dichvu}">Dịch vụ</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/thongtin}">Thông tin</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/lienhe}">Liên hệ</a></li>
 
 
             </ul>
@@ -170,7 +170,7 @@
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                 <li class="nav-item position-relative">
-                    <a class="nav-link" th:href="@{/beestore/cart}" title="View Cart">
+                    <a class="nav-link" th:href="@{/hmstore/cart}" title="View Cart">
                         <img src="/../images/cart.svg" class="cart-icon" alt="Cart Icon">
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                               th:if="${totalQuantity > 0}" th:text="${totalQuantity}">
@@ -183,21 +183,22 @@
                        aria-expanded="false">
                         <img src="/../images/user.svg">
                     </a>
-                    <div >
+
+                    <div th:if="${checkSecurity}">
                         <!-- If checkSecurity is true, display the dropdown menu -->
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" th:href="'/admin/thongtincanhan'">Tài khoản </a>
-                            <a class="dropdown-item" th:href="'/beestore/hoa-don-cua-toi'">Đơn mua</a>
+                            <a class="dropdown-item" th:href="'/hmstore/hoa-don-cua-toi'">Đơn mua</a>
                             <a class="dropdown-item" th:href="'/logout'" >Đăng xuất</a>
                         </div>
                     </div>
-                        <div th:unless="${checkSecurity}">
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" th:href="'/beestore/hoa-don-cua-toi'">Đăng nhập</a>
-                            </div>
+
+                    <div th:unless="${checkSecurity}">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" th:href="'/hmstore/hoa-don-cua-toi'">Đăng nhập</a>
                         </div>
                     </div>
-                </li>
+                </div>
 
                 </li>
 
@@ -265,7 +266,7 @@
     <div class="container">
 
         <hr class="box">
-        <form method="post" th:action="@{/beestore/cart/add/{id}(id=${id})}" id="add-to-cart-form"
+        <form method="post" th:action="@{/hmstore/cart/add/{id}(id=${id})}" id="add-to-cart-form"
               onsubmit="return validateQuantity()">
             <input type="hidden" id="availableQuantity" th:value="${soLuongTon}"/>
             <input type="hidden" id="cartQuantity" th:value="${soLuongTrongGioHang}">
@@ -300,8 +301,8 @@
                             <span style="color: red" th:text="*{sanPham.dongSanPham.ten}"></span>
                         </div>
                         <div class="col-lg-5">
-                            <label style="color: #101214">Loại Đế </label>
-                            <span style="color: red" th:text="*{deGiay.ten}"></span>
+                            <label style="color: #101214">Loại vải </label>
+                            <span style="color: red" th:text="*{loaiVai.ten}"></span>
                         </div>
                         <div class="col-lg-5">
                             <div style="display: flex; align-items: center;">
@@ -473,7 +474,7 @@
                     <br>
 
                     <div class="row">
-                        <button href="/beestore/cart" class="btn" style="margin-bottom: 20px" type="submit"> Thêm vào giỏ hàng</button>
+                        <button href="/hmstore/cart" class="btn" style="margin-bottom: 20px" type="submit"> Thêm vào giỏ hàng</button>
                     </div>
 
 
@@ -590,11 +591,11 @@
                             </div>
                         </div>
                         <p>Giao hàng nhanh, size chuẩn, siêu ưng ý. Nên mua nhaa mọi ngườii
-                            đóng gói sản phẩm chắc chắn giày khá ổn như vậy là vừa ổn vs giá tiền rồi, shop có tặng kèm 1 đôi với
+                            đóng gói sản phẩm chắc chắn, vừa ổn vs giá tiền rồi.
 
                             +10 điểm cho độ hoàn thiện
                             +10 điểm cho sự nhiệt tình nhé
-                            +Shop 5 SAo</p>
+                            +Shop 5 Sao</p>
                     </div>
                     <hr>
                     <div>
@@ -627,8 +628,8 @@
                                 <p>Màu sắc: Xanh</p>
                             </div>
                         </div>
-                        <p>Giày form đẹp, chất liệu mềm, thoải mái.
-                            Tem, nhãn đầy đủ. Shop còn tặng thêm vớ, túi vải & dây buộc giày nữa.
+                        <p>Áo form đẹp, chất liệu mềm, thoải mái.
+                            Tem, nhãn đầy đủ.
                             Xứng đáng 5*. Mình sẽ còn ủng hộ.
                             Xin cảm ơn 🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾🙏🏾</p>
                     </div>
@@ -680,9 +681,9 @@
             <!-- Start Column 1 -->
             <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0" th:each="ctsp4rand : ${listRandom}">
                 <div class="product-item" style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; transition: box-shadow 0.3s;">
-                    <a th:href="@{'/beestore/detaisp/' + ${ctsp4rand.getId()}}" style="text-decoration: none; color: inherit;">
+                    <a th:href="@{'/hmstore/detaisp/' + ${ctsp4rand.getId()}}" style="text-decoration: none; color: inherit;">
                         <img th:src="@{'/../images/' + ${ctsp4rand.getAnh_chinh()}}" class="img-fluid product-thumbnail" style="border-radius: 10px;">
-                        <h3 class="product-title" th:text="${ctsp4rand.getTenSp() +' '+ ctsp4rand.getTenDongSp() +' '+ ctsp4rand.getTenDe_giay() }" style="font-size: 16px; margin-top: 10px; font-family: 'Montserrat', sans-serif;"></h3>
+                        <h3 class="product-title" th:text="${ctsp4rand.getTenSp() +' '+ ctsp4rand.getTenDongSp() +' '+ ctsp4rand.getTenLoaiVai() }" style="font-size: 16px; margin-top: 10px; font-family: 'Montserrat', sans-serif;"></h3>
                         <strong th:if="${ctsp4rand.getGia_mac_dinh() != ctsp4rand.getGia_ban()}" class="product-price"
                                 th:text="${#numbers.formatDecimal(ctsp4rand.getGia_ban(), 0, 'POINT', 0, 'COMMA') + ' VND'}" style="color: red; font-size: 14px;"></strong>
                         <strong th:if="${ctsp4rand.getGia_mac_dinh() == ctsp4rand.getGia_ban()}" class="product-price"
@@ -729,15 +730,15 @@
             <div class="col-lg-6">
 
 
-                <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8836968727605!2d105.74640787500061!3d21.03733908748429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345515f14a641f%3A0xe7f2a647f98416cb!2sFPT%20Polytechnic!5e0!3m2!1sen!2s!4v1696820790226!5m2!1sen!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><!-- End #map -->
+                <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.292401303918!2d105.784841575723!3d20.980912980656466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1735323494270!5m2!1svi!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><!-- End #map -->
 
             </div>
         </div>
 
         <div class="row g-5 mb-5" style="color: black" >
             <div class="col-lg-4">
-                <div style="color: black"  class="mb-4 footer-logo-wrap"><a href="../..img/e77e3572384e5c9af495d1acfbfa6f70.jpg" class="footer-logo" style="color: black" >BeeStore<span></span></a></div>
-                <p style="color: black" class="mb-4"> Hệ thống giày thể thao số 1 Hà Nội</p>
+                <div style="color: black"  class="mb-4 footer-logo-wrap"><a href="../..img/hm.jpg" class="footer-logo" style="color: black" >HMStore<span></span></a></div>
+                <p style="color: black" class="mb-4"> Hệ thống đồ thể thao số 1 Hà Nội</p>
 
 
             </div>
@@ -787,7 +788,7 @@
                 <div class="col-lg-6">
                     <p class="mb-2 text-center text-lg-start">Chủ sở hữu &copy;
                         <script>document.write(new Date().getFullYear());</script> &mdash;
-                        BEESTORE_SD01_SUM24
+                        HMStore_PTIT_D20
 
                         <!-- License information: https://untree.co/license/ -->
                     </p>
@@ -884,7 +885,7 @@
 
             if (selectedSize) {
                 var sizeId = selectedSize.value;
-                var actionUrl = `/beestore/detaisp/${productId}`;
+                var actionUrl = `/hmstore/detaisp/${productId}`;
 
                 // Get the current URL and its search parameters
                 var url = new URL(window.location.href);
@@ -937,7 +938,7 @@ window.location.replace(updatedUrl);
                 var colorId = getSelectedValue('colorId');
 
                 if (sizeId && colorId) {
-                    var actionUrl = `/beestore/detaisp/${productId}`;
+                    var actionUrl = `/hmstore/detaisp/${productId}`;
                     var url = `${actionUrl}?sizeId=${sizeId}&colorId=${colorId}`;
                     console.log("Redirecting to URL:", url);
 

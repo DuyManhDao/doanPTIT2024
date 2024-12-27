@@ -6,12 +6,12 @@ import com.ptit.d20cntt.datn.entity.GioHangChiTiet;
 import com.ptit.d20cntt.datn.entity.HoaDon;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.enumation.TrangThaiDonHang;
-import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamResponsitory;
+import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamRepository;
 import com.ptit.d20cntt.datn.service.BanHangService;
 import com.ptit.d20cntt.datn.service.GioHangChiTietService;
 import com.ptit.d20cntt.datn.service.HoaDonChiTietService;
 import com.ptit.d20cntt.datn.service.HoaDonService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -37,12 +37,12 @@ public class HoaDonController {
     private final HoaDonService hoaDonService;
     private final HoaDonChiTietService hoaDonChiTietService;
     private final GioHangChiTietService gioHangChiTietService;
-    private final ChiTietSanPhamResponsitory chiTietSanPhamService;
+    private final ChiTietSanPhamRepository chiTietSanPhamService;
     private  final BanHangService banHangService;
 
 
 
-    public HoaDonController(HoaDonService hoaDonService, HoaDonChiTietService hoaDonChiTietService, GioHangChiTietService gioHangChiTietService, ChiTietSanPhamResponsitory chiTietSanPhamService1, BanHangService banHangService ) {
+    public HoaDonController(HoaDonService hoaDonService, HoaDonChiTietService hoaDonChiTietService, GioHangChiTietService gioHangChiTietService, ChiTietSanPhamRepository chiTietSanPhamService1, BanHangService banHangService ) {
         this.hoaDonService = hoaDonService;
         this.hoaDonChiTietService = hoaDonChiTietService;
         this.gioHangChiTietService = gioHangChiTietService;
@@ -51,7 +51,7 @@ public class HoaDonController {
 
     }
 
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 //View hóa đơn chờ
     /**
      * Get All HoaDon

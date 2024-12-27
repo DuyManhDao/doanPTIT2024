@@ -5,7 +5,7 @@ import com.ptit.d20cntt.datn.entity.PhieuGiamGia;
 import com.ptit.d20cntt.datn.enumation.TrangThaiPhieuKhuyenMai;
 import com.ptit.d20cntt.datn.request.PhieuGiamGiaRequest;
 import com.ptit.d20cntt.datn.responsitory.NhanVienRepository;
-import com.ptit.d20cntt.datn.responsitory.PhieuGiamGiaResponsitory;
+import com.ptit.d20cntt.datn.responsitory.PhieuGiamGiaRepository;
 import com.ptit.d20cntt.datn.sendmail.EmailService;
 import com.ptit.d20cntt.datn.service.PhieuGiamGiaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Service
 public class PhieuGiamGiaServiceImpl implements PhieuGiamGiaService {
     @Autowired
-    PhieuGiamGiaResponsitory responsitory;
+    PhieuGiamGiaRepository responsitory;
 
     ZoneId systemZone = ZoneId.systemDefault();
     @Autowired

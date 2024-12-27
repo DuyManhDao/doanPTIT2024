@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.service.impl;
 import com.ptit.d20cntt.datn.entity.DongSanPham;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.DongSanPhamRequest;
-import com.ptit.d20cntt.datn.responsitory.DongSanPhamResponsitory;
+import com.ptit.d20cntt.datn.responsitory.DongSanPhamRepository;
 import com.ptit.d20cntt.datn.service.DongSanPhamService;
 import org.springframework.stereotype.Repository;
 
@@ -13,9 +13,9 @@ import java.util.Optional;
 
 @Repository
 public class DongSanPhamServiceImpl implements DongSanPhamService {
-    private final DongSanPhamResponsitory repository;
+    private final DongSanPhamRepository repository;
 
-    public DongSanPhamServiceImpl(DongSanPhamResponsitory repository) {
+    public DongSanPhamServiceImpl(DongSanPhamRepository repository) {
         this.repository = repository;
     }
 

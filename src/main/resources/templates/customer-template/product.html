@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{customer-template/fragments/fragment :: page_head}">
@@ -8,13 +7,13 @@
 <!-- Start Header/Navigation -->
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
     <div class="container">
-        <a class="navbar-brand" th:href="@{/beestore/trang-chu}">
-            <img th:src="@{/img/e77e3572384e5c9af495d1acfbfa6f70.jpg}"
+        <a class="navbar-brand" th:href="@{/hmstore/trang-chu}">
+            <img th:src="@{/img/hm.jpg}"
                  style="height: 50px; width: 50px;">
 
             <a class="navbar-brand"
 
-               th:href="@{/beestore/trang-chu}">BeeStore<span></span></a></a>
+               th:href="@{/hmstore/trang-chu}">HMStore<span></span></a></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                 aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,19 +23,19 @@
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="active">
-                    <a class="nav-link" th:href="@{/beestore/trang-chu}">Trang chủ</a>
+                    <a class="nav-link" th:href="@{/hmstore/trang-chu}">Trang chủ</a>
                 </li>
-                <li><a class="nav-link" th:href="@{/beestore/cua-hang}">Cửa hàng</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/dichvu}">Dịch vụ</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/thongtin}">Thông tin</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/lienhe}">Liên hệ</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/cua-hang}">Cửa hàng</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/dichvu}">Dịch vụ</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/thongtin}">Thông tin</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/lienhe}">Liên hệ</a></li>
 
 
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                 <li class="nav-item position-relative">
-                    <a class="nav-link" th:href="@{/beestore/cart}" title="View Cart">
+                    <a class="nav-link" th:href="@{/hmstore/cart}" title="View Cart">
                         <img src="/../images/cart.svg" class="cart-icon" alt="Cart Icon">
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                               th:if="${totalQuantity > 0}" th:text="${totalQuantity}">
@@ -44,25 +43,26 @@
         </span>
                     </a>
                 </li>
-                    <div class="dropdown show" style="padding-top: 5px">
-                        <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            <img src="/../images/user.svg">
-                        </a>
-                        <div >
-                            <!-- If checkSecurity is true, display the dropdown menu -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" th:href="'/admin/thongtincanhan'">Tài khoản </a>
-                                <a class="dropdown-item" th:href="'/beestore/hoa-don-cua-toi'">Đơn mua</a>
-                                <a class="dropdown-item" th:href="'/logout'" >Đăng xuất</a>
-                            </div>
+                <div class="dropdown show" style="padding-top: 5px">
+                    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img src="/../images/user.svg">
+                    </a>
+                    <div th:if="${checkSecurity}">
+                        <!-- If checkSecurity is true, display the dropdown menu -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" th:href="'/admin/thongtincanhan'">Tài khoản </a>
+                            <a class="dropdown-item" th:href="'/hmstore/hoa-don-cua-toi'">Đơn mua</a>
+                            <a class="dropdown-item" th:href="'/logout'">Đăng xuất</a>
                         </div>
-                        <div >
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" th:href="'/beestore/login'">Đăng nhập</a>
-                            </div>
+                    </div>
+                    <div th:if="${!checkSecurity}">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" th:href="'/hmstore/login'">Đăng nhập</a>
                         </div>
-                    </div>                </li>
+                    </div>
+                </div>
+                </li>
 
                 </li>
 
@@ -83,21 +83,21 @@
         <div class="productfinder">
 
             <script>
-                document.addEventListener("DOMContentLoaded", function() {
+                document.addEventListener("DOMContentLoaded", function () {
                     const productFinderDiv = document.querySelector('.scro');
                     const errorMessage = document.querySelector('.error-message');
                     const arr = document.querySelector('.arr');
 
                     if (errorMessage) {
-                        arr.scrollIntoView({ behavior: 'smooth' });
+                        arr.scrollIntoView({behavior: 'smooth'});
                     } else if (productFinderDiv) {
-                        productFinderDiv.scrollIntoView({ behavior: 'smooth' });
+                        productFinderDiv.scrollIntoView({behavior: 'smooth'});
                     }
                 });
             </script>
             <div class="pf-filter-item">
 
-                <form class="pf-controls" id="pf-Filters" >
+                <form class="pf-controls" id="pf-Filters">
                     <h4 style="display: flex; align-items: center;">
                         <i class="fas fa-filter" style="margin-right: 8px;"></i> Bộ Lọc Tìm Kiếm
                     </h4>
@@ -122,7 +122,8 @@
                         Dòng Sản Phẩm
                         <i class="fas fa-chevron-down toggle-icon" id="toggleIcon1"></i>
                     </h4>
-                    <fieldset class="filter-group pf-checkboxes" id="filterOptions1" style="display: none; margin-top: 10px;">
+                    <fieldset class="filter-group pf-checkboxes" id="filterOptions1"
+                              style="display: none; margin-top: 10px;">
                         <div class="pf-checkbox" th:each="dongSp : ${dongSps}">
                             <input type="checkbox" th:checked="${listDongSanPham.contains(dongSp.ten)}"
                                    name="tenDongSanPham" id="tenDongSanPham" th:value="${dongSp.ten}" class="power"/>
@@ -135,10 +136,12 @@
                         Thương Hiệu
                         <i class="fas fa-chevron-down toggle-icon" id="toggleIcon2"></i>
                     </h4>
-                    <fieldset class="filter-group pf-checkboxes" id="filterOptions2" style="display: none; margin-top: 10px;">
+                    <fieldset class="filter-group pf-checkboxes" id="filterOptions2"
+                              style="display: none; margin-top: 10px;">
                         <div class="pf-checkbox" th:each="thuongHieu : ${thuongHieus}">
                             <input type="checkbox" th:checked="${listThuongHieu.contains(thuongHieu.ten)}"
-                                   name="tenThuongHieu" id="tenThuongHieu" th:value="${thuongHieu.ten}" class="segment"/>
+                                   name="tenThuongHieu" id="tenThuongHieu" th:value="${thuongHieu.ten}"
+                                   class="segment"/>
                             <label th:text="${thuongHieu.ten}"></label>
                         </div>
                     </fieldset>
@@ -147,7 +150,8 @@
                         Màu Sắc
                         <i class="fas fa-chevron-down toggle-icon" id="toggleIcon3"></i>
                     </h4>
-                    <fieldset class="filter-group pf-checkboxes" id="filterOptions3" style="display: none; margin-top: 10px;">
+                    <fieldset class="filter-group pf-checkboxes" id="filterOptions3"
+                              style="display: none; margin-top: 10px;">
                         <div class="pf-checkbox" th:each="mauSac : ${mauSacs}">
                             <input type="checkbox" th:checked="${listMauSac.contains(mauSac.ten)}" name="tenMauSac"
                                    id="tenMauSac" th:value="${mauSac.ten}" class="segment"/>
@@ -159,7 +163,8 @@
                         Kích Cỡ
                         <i class="fas fa-chevron-down toggle-icon" id="toggleIcon4"></i>
                     </h4>
-                    <fieldset class="filter-group pf-checkboxes" id="filterOptions4" style="display: none; margin-top: 10px;">
+                    <fieldset class="filter-group pf-checkboxes" id="filterOptions4"
+                              style="display: none; margin-top: 10px;">
                         <div class="pf-checkbox" th:each="kichThuoc : ${kichThuocs}">
                             <input type="checkbox" th:checked="${listKichThuoc.contains(kichThuoc.ten)}"
                                    name="tenKichThuoc" id="tenKichThuoc" th:value="${kichThuoc.ten}" class="seating"/>
@@ -168,14 +173,15 @@
                     </fieldset>
 
                     <h4 class="filter-title" onclick="toggleFilter('filterOptions5', 'toggleIcon5')">
-                        Loại Đế
+                        Loại vải
                         <i class="fas fa-chevron-down toggle-icon" id="toggleIcon5"></i>
                     </h4>
-                    <fieldset class="filter-group pf-checkboxes" id="filterOptions5" style="display: none; margin-top: 10px;">
-                        <div class="pf-checkbox" th:each="deGiay : ${deGiays}">
-                            <input type="checkbox" th:checked="${listDeGiay.contains(deGiay.ten)}" name="tenDeGiay"
-                                   id="tenDeGiay" th:value="${deGiay.ten}" class="power"/>
-                            <label th:text="${deGiay.ten}"></label>
+                    <fieldset class="filter-group pf-checkboxes" id="filterOptions5"
+                              style="display: none; margin-top: 10px;">
+                        <div class="pf-checkbox" th:each="loaiVai : ${loaiVais}">
+                            <input type="checkbox" th:checked="${listLoaiVai.contains(loaiVai.ten)}" name="tenLoaiVai"
+                                   id="tenLoaiVai" th:value="${loaiVai.ten}" class="power"/>
+                            <label th:text="${loaiVai.ten}"></label>
                         </div>
                     </fieldset>
 
@@ -227,7 +233,6 @@
                             }
                         }
                     </script>
-
 
 
                     <style>
@@ -294,11 +299,11 @@
                         }
                     </script>
                     <div class="button-container">
-                        <a style="color: #0b0b0b" th:href="@{/beestore/cua-hang}" class="button-style" >
+                        <a style="color: #0b0b0b" th:href="@{/hmstore/cua-hang}" class="button-style">
                             <i></i> Xóa bộ lọc
                         </a>
                         <button style="color: #0b0b0b" class="button-style" type="submit">
-                            <i ></i> Lọc Sản Phẩm
+                            <i></i> Lọc Sản Phẩm
                         </button>
                     </div>
 
@@ -334,12 +339,12 @@
                 <div id="pf-Container" class="pf-container live-search-list row">
                     <div class="col-md-4 col-sm-6 mb-4" th:each="ctsp : ${listCTSP}">
                         <div class="product-item" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px">
-<!--                            <a th:href="@{'/beestore/detaisp/' + ${ctsp.id}}" style="text-decoration: none">-->
-                            <a th:href="@{'/beestore/detaisp/' + ${ctsp.idSanPham}}" style="text-decoration: none">
+                            <!--                            <a th:href="@{'/hmstore/detaisp/' + ${ctsp.id}}" style="text-decoration: none">-->
+                            <a th:href="@{'/hmstore/detaisp/' + ${ctsp.idSanPham}}" style="text-decoration: none">
                                 <img th:src="@{'../images/' + ${ctsp.anhChinh}}" class="img-fluid product-thumbnail"
                                      style="border-radius: 8px; width: 100%; height: auto;" alt="Product Image">
                                 <h3 class="product-title" style="font-size: 18px; margin-top: 15px; color: #333;"
-                                    th:text="${ctsp.tenSanPham +' ['+ ctsp.tenDongSanPham +'- '+ ctsp.tenDeGiay +']'}"></h3>
+                                    th:text="${ctsp.tenSanPham +' ['+ ctsp.tenDongSanPham +'- '+ ctsp.tenLoaiVai +']'}"></h3>
 
                                 <!-- Display product price -->
                                 <div th:if="${ctsp.giaMacDinh == ctsp.giaBan}">
@@ -351,7 +356,8 @@
                                 <div th:if="${ctsp.giaMacDinh != ctsp.giaBan}">
                                     <s class="old-price" style="font-size: 14px; color: #888;"
                                        th:text="${#numbers.formatDecimal(ctsp.giaMacDinh, 0, 'POINT', 0, 'COMMA') + ' VND'}"></s>
-                                    <strong class="new-price" style="font-size: 18px; color: #bf1222; margin-left: 10px;"
+                                    <strong class="new-price"
+                                            style="font-size: 18px; color: #bf1222; margin-left: 10px;"
                                             th:text="${#numbers.formatDecimal(ctsp.giaBan, 0, 'POINT', 0, 'COMMA') + ' VND'}"></strong>
                                 </div>
                             </a>
@@ -365,6 +371,7 @@
                 .product-item:hover {
                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
                 }
+
                 .product-title:hover {
                     color: #bf1222;
                 }
@@ -376,21 +383,24 @@
                     <button type="submit" class="page-item" name="page" value="0" th:disabled="${page == 0}">
                         <i class="fas fa-angle-double-left"></i> <!-- Icon double left arrow -->
                     </button>
-                    <button type="submit" class="page-item" name="page" th:disabled="${page <= 0}" th:value="${page - 1}">
+                    <button type="submit" class="page-item" name="page" th:disabled="${page <= 0}"
+                            th:value="${page - 1}">
                         <i class="fas fa-angle-left"></i> <!-- Icon left arrow -->
                     </button>
-                    <button type="submit" class="page-item" name="page" th:value="${totalPages - 1}" th:text="${page + 1}"></button>
-                    <button type="submit" class="page-item" name="page" th:disabled="${page >= totalPages - 1}" th:value="${page + 1}">
+                    <button type="submit" class="page-item" name="page" th:value="${totalPages - 1}"
+                            th:text="${page + 1}"></button>
+                    <button type="submit" class="page-item" name="page" th:disabled="${page >= totalPages - 1}"
+                            th:value="${page + 1}">
                         <i class="fas fa-angle-right"></i> <!-- Icon right arrow -->
                     </button>
-                    <button type="submit" class="page-item" th:disabled="${page >= totalPages - 1}" name="page" th:value="${totalPages - 1}">
+                    <button type="submit" class="page-item" th:disabled="${page >= totalPages - 1}" name="page"
+                            th:value="${totalPages - 1}">
                         <i class="fas fa-angle-double-right"></i> <!-- Icon double right arrow -->
                     </button>
-                    <input type="hidden" name="pageSize" th:value="${pageSize}" />
+                    <input type="hidden" name="pageSize" th:value="${pageSize}"/>
                 </div>
             </div>
             <style>
-
 
 
                 .page-item {
@@ -404,13 +414,13 @@
                 }
 
 
-<!--            </style>-->
+                <!--            </style>
+            -->
             </form>
 
 
-
+        </div>
     </div>
-</div>
 
     <p></p>
 
@@ -418,14 +428,14 @@
         <div class="container relative">
 
 
-
-
             <div class="row">
                 <div class="col-lg-6">
                     <div class="subscription-form">
-                        <h3 class="d-flex align-items-center"><span class="me-1"><img src="../images/envelope-outline.svg"
-                                                                                      alt="Image"
-                                                                                      class="img-fluid"></span><span style="color: black" >Đăng ký nhận thông tin khuyến Mại</span>
+                        <h3 class="d-flex align-items-center"><span class="me-1"><img
+                                src="../images/envelope-outline.svg"
+                                alt="Image"
+                                class="img-fluid"></span><span
+                                style="color: black">Đăng ký nhận thông tin khuyến Mại</span>
                         </h3>
 
                         <form action="#" class="row g-3">
@@ -447,15 +457,21 @@
                 <div class="col-lg-6">
 
 
-                    <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8836968727605!2d105.74640787500061!3d21.03733908748429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345515f14a641f%3A0xe7f2a647f98416cb!2sFPT%20Polytechnic!5e0!3m2!1sen!2s!4v1696820790226!5m2!1sen!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><!-- End #map -->
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.292401303918!2d105.784841575723!3d20.980912980656466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1735323494270!5m2!1svi!2s"
+                                width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div><!-- End #map -->
 
                 </div>
             </div>
 
-            <div class="row g-5 mb-5" style="color: black" >
+            <div class="row g-5 mb-5" style="color: black">
                 <div class="col-lg-4">
-                    <div style="color: black"  class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo" style="color: black" >BeeStore<span></span></a></div>
-                    <p style="color: black" class="mb-4"> Hệ thống giày thể thao số 1 Hà Nội</p>
+                    <div style="color: black" class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo"
+                                                                               style="color: black">HMStore<span></span></a>
+                    </div>
+                    <p style="color: black" class="mb-4"> Hệ thống đồ thể thao số 1 Hà Nội</p>
 
 
                 </div>
@@ -505,12 +521,11 @@
                     <div class="col-lg-6">
                         <p class="mb-2 text-center text-lg-start">Chủ sở hữu &copy;
                             <script>document.write(new Date().getFullYear());</script> &mdash;
-                            BEESTORE_SD01_SUM24
+                            HMStore_PTIT_D20
 
                             <!-- License information: https://untree.co/license/ -->
                         </p>
                     </div>
-
 
 
                 </div>
@@ -518,146 +533,150 @@
 
         </div>
     </footer>
-<style>
-    .product-title {
-        text-align: center;
-    }
+    <style>
+        .product-title {
+            text-align: center;
+        }
 
-    .product-price {
-        text-align: right; /* Hoặc center, tùy vào thiết kế của bạn */
-    }
-    .product-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center; /* Hoặc left, tùy vào thiết kế của bạn */
-    }
-    .product-item {
+        .product-price {
+            text-align: right; /* Hoặc center, tùy vào thiết kế của bạn */
+        }
 
-        padding: 20px;
-        width: 200px; /* Chiều rộng cố định */
-        height: 400px; /* Chiều cao cố định */
-        position: relative; /* Cho phép sử dụng top và left */
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; /* Hoặc left, tùy vào thiết kế của bạn */
+        }
 
-        transition: transform 0.3s ease;
-    }
+        .product-item {
 
-    .product-thumbnail {
-        width: 200px;
-        height: 180px;
-        object-fit: cover; /* Hoặc contain, tùy vào thiết kế của bạn */
-    }
-    .product-item {
-        margin-bottom: 20px;
-    }
+            padding: 20px;
+            width: 200px; /* Chiều rộng cố định */
+            height: 400px; /* Chiều cao cố định */
+            position: relative; /* Cho phép sử dụng top và left */
 
-    .product-title, .product-price {
-        margin: 10px 0;
-    }
-    .product-item:hover {
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.3s ease;
-        transform: scale(1.05);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
 
-    }
-    .pf-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; /* Khoảng cách giữa các sản phẩm */
-    }
-    .productfinder {
-        width: 100%;
-        height: 100%;
-        padding: 0 30px;
-        margin-left: 3%;
-        display: table;
-    }
+        .product-thumbnail {
+            width: 200px;
+            height: 180px;
+            object-fit: cover; /* Hoặc contain, tùy vào thiết kế của bạn */
+        }
 
-    .productfinder > div {
-        display: table-cell;
-        float: left;
-    }
+        .product-item {
+            margin-bottom: 20px;
+        }
 
-    .productfinder h4 {
-        font-weight: 700;
-        margin-bottom: .5em;
-    }
+        .product-title, .product-price {
+            margin: 10px 0;
+        }
 
-    .productfinder label {
-        font-weight: 300;
-    }
+        .product-item:hover {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.3s ease;
+            transform: scale(1.05);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
+        }
 
-    .productfinder button:focus {
-        outline: 0 none;
-    }
+        .pf-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Khoảng cách giữa các sản phẩm */
+        }
 
-    .productfinder .pf-controls {
-        padding: 2%;
-    }
+        .productfinder {
+            width: 100%;
+            height: 100%;
+            padding: 0 30px;
+            margin-left: 3%;
+            display: table;
+        }
 
-    .productfinder .filter-group {
-        display: block;
-        margin: 0 1em 0 0;
-        border: 0;
-        padding: .5em;
-    }
+        .productfinder > div {
+            display: table-cell;
+            float: left;
+        }
+
+        .productfinder h4 {
+            font-weight: 700;
+            margin-bottom: .5em;
+        }
+
+        .productfinder label {
+            font-weight: 300;
+        }
 
 
-    .productfinder .pf-filter-item {
-        width: 300px;
-    }
+        .productfinder button:focus {
+            outline: 0 none;
+        }
 
-    .productfinder .pf-wrapper {
-        width: calc(100% - 300px);
-    }
+        .productfinder .pf-controls {
+            padding: 2%;
+        }
 
-    .productfinder .pf-container > div:not(.fail-message) {
-        width: calc(25% - 50px);
-        float: left;
-    }
+        .productfinder .filter-group {
+            display: block;
+            margin: 0 1em 0 0;
+            border: 0;
+            padding: .5em;
+        }
 
-    .productfinder .pf-container {
-        display: -ms-flexbox !important;
-        display: flex !important;
-        -ms-flex-wrap: wrap !important;
-        flex-wrap: wrap !important;
-        -ms-flex-line-pack: start !important;
-        align-content: flex-start !important;
-    }
 
-</style>
+        .productfinder .pf-filter-item {
+            width: 300px;
+        }
+
+        .productfinder .pf-wrapper {
+            width: calc(100% - 300px);
+        }
+
+        .productfinder .pf-container > div:not(.fail-message) {
+            width: calc(25% - 50px);
+            float: left;
+        }
+
+        .productfinder .pf-container {
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -ms-flex-wrap: wrap !important;
+            flex-wrap: wrap !important;
+            -ms-flex-line-pack: start !important;
+            align-content: flex-start !important;
+        }
+
+    </style>
 
     <script>
-    function formatCurrency(fieldId) {
-        let inputValue = document.getElementById(fieldId).value.replace(/\D/g, '');
-        let formattedValue = formatCurrencyValue(inputValue);
-        document.getElementById(fieldId).value = formattedValue;
-        document.getElementById(fieldId + "Value").value = inputValue;
-    }
-
-    function formatCurrencyValue(value) {
-        let integerValue = Number.parseFloat(value);
-        if (isNaN(integerValue)) {
-            return "0";
+        function formatCurrency(fieldId) {
+            let inputValue = document.getElementById(fieldId).value.replace(/\D/g, '');
+            let formattedValue = formatCurrencyValue(inputValue);
+            document.getElementById(fieldId).value = formattedValue;
+            document.getElementById(fieldId + "Value").value = inputValue;
         }
-        return integerValue.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
 
-    window.onload = function () {
-        let minGiaValue = document.getElementById("minGiaValue").value;
-        let maxGiaValue = document.getElementById("maxGiaValue").value;
+        function formatCurrencyValue(value) {
+            let integerValue = Number.parseFloat(value);
+            if (isNaN(integerValue)) {
+                return "0";
+            }
+            return integerValue.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
 
-        // Set default values to 0 if hidden inputs are empty
-        document.getElementById("minGia").value = minGiaValue !== "" ? formatCurrencyValue(minGiaValue) : "0";
-        document.getElementById("maxGia").value = maxGiaValue !== "" ? formatCurrencyValue(maxGiaValue) : "0";
-    };
+        window.onload = function () {
+            let minGiaValue = document.getElementById("minGiaValue").value;
+            let maxGiaValue = document.getElementById("maxGiaValue").value;
+
+            // Set default values to 0 if hidden inputs are empty
+            document.getElementById("minGia").value = minGiaValue !== "" ? formatCurrencyValue(minGiaValue) : "0";
+            document.getElementById("maxGia").value = maxGiaValue !== "" ? formatCurrencyValue(maxGiaValue) : "0";
+        };
 
 
-
-
-</script>
-<!-- End Footer Section -->
+    </script>
+    <!-- End Footer Section -->
 </body>
 </html>

@@ -11,7 +11,7 @@
     <meta name="keywords" content="bootstrap, bootstrap4"/>
 
     <!-- Bootstrap CSS -->
-    <link href="../..img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon"/>
+    <link href="../..img/hm.jpg" rel="icon"/>
     <link href="/../css/customer/bootstrap.min.css" rel="stylesheet"/>
 
     <link
@@ -100,7 +100,7 @@
     <link href="/../css/customer/tiny-slider.css" rel="stylesheet"/>
     <link href="/../css/customer/style.css" rel="stylesheet"/>
     <title>
-        BeeStore
+        HMStore
     </title>
     <link href="/../css/customer/tiny-slider.css" rel="stylesheet"/>
     <link href="/../css/customer/style.css" rel="stylesheet"/>
@@ -119,11 +119,11 @@
 <<!-- Start Header/Navigation -->
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
     <div class="container">
-        <a class="navbar-brand" th:href="@{/beestore/trang-chu}">
+        <a class="navbar-brand" th:href="@{/hmstore/trang-chu}">
             <img style="height: 50px; width: 50px;"
-                 th:src="@{/img/e77e3572384e5c9af495d1acfbfa6f70.jpg}">
+                 th:src="@{/img/hm.jpg}">
             <a class="navbar-brand"
-               th:href="@{/beestore/trang-chu}">BeeStore</a></a>
+               th:href="@{/hmstore/trang-chu}">HMStore</a></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                 aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,18 +133,19 @@
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="active">
-                    <a class="nav-link" th:href="@{/beestore/trang-chu}">Trang chủ</a>
+                    <a class="nav-link" th:href="@{/hmstore/trang-chu}">Trang chủ</a>
                 </li>
-                <li><a class="nav-link" th:href="@{/beestore/cua-hang}">Cửa hàng</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/dichvu}">Dịch vụ</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/thongtin}">Thông tin</a></li>
-                <li><a class="nav-link" th:href="@{/beestore/lienhe}">Liên hệ</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/cua-hang}">Cửa hàng</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/dichvu}">Dịch vụ</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/thongtin}">Thông tin</a></li>
+                <li><a class="nav-link" th:href="@{/hmstore/lienhe}">Liên hệ</a></li>
 
 
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link"  th:href="@{/beestore/cart}"><img src="/../images/cart.svg" style="padding-bottom: 5px"></a>
+                <li><a class="nav-link" th:href="@{/hmstore/cart}"><img src="/../images/cart.svg"
+                                                                        style="padding-bottom: 5px"></a>
                 <li>
                     <div class="dropdown show" style="padding-top: 5px">
                         <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -155,13 +156,13 @@
                             <!-- If checkSecurity is true, display the dropdown menu -->
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" th:href="'/admin/thongtincanhan'">Tài khoản </a>
-                                <a class="dropdown-item" th:href="'/beestore/hoa-don-cua-toi'">Đơn mua</a>
-                                <a class="dropdown-item" th:href="'/logout'" >Đăng xuất</a>
+                                <a class="dropdown-item" th:href="'/hmstore/hoa-don-cua-toi'">Đơn mua</a>
+                                <a class="dropdown-item" th:href="'/logout'">Đăng xuất</a>
                             </div>
                         </div>
                         <div th:unless="${checkSecurity}">
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" th:href="'/beestore/hoa-don-cua-toi'">Đăng nhập</a>
+                                <a class="dropdown-item" th:href="'/hmstore/hoa-don-cua-toi'">Đăng nhập</a>
                             </div>
                         </div>
                     </div>
@@ -265,10 +266,11 @@
                         <div class="left-sidebar">
                             <div class="break-line"></div>
                             <div class="nav-sidebar">
-<!--                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-                                <a class="selling-buying-products nav-item" th:href="'/admin/thongtincanhan'">Thông Tin Của
+                                <!--                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+                                <a class="selling-buying-products nav-item" th:href="'/admin/thongtincanhan'">Thông Tin
+                                    Của
                                     Tôi</a>
-                                <a class="account nav-item" th:href="'/beestore/hoa-don-cua-toi'">Đơn
+                                <a class="account nav-item" th:href="'/hmstore/hoa-don-cua-toi'">Đơn
                                     Hàng Mua</a>
 
                                 <!--                                </div>-->
@@ -294,26 +296,33 @@
                                         <i class="fas fa-clipboard-list"></i> Thông Tin Đơn Hàng
                                     </h5>
                                     <p><strong>Ngày Đặt Hàng:</strong> <span th:text="${hd.ngayTao}"></span></p>
-                                    <p><strong>Trạng Thái:</strong> <span th:text="${hd.trangThai.getDisplayName()}"></span></p>
-                                    <p><strong>Ghi Chú Đơn Hàng:</strong> <span style="color: red" th:text="${hd.ghiChu}"></span></p>
-                                    <p><strong>Tổng Tiền:</strong> <span th:text="${#numbers.formatDecimal(hd.tongTien ?: 0, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span></p>
+                                    <p><strong>Trạng Thái:</strong> <span
+                                            th:text="${hd.trangThai.getDisplayName()}"></span></p>
+                                    <p><strong>Ghi Chú Đơn Hàng:</strong> <span style="color: red"
+                                                                                th:text="${hd.ghiChu}"></span></p>
+                                    <p><strong>Tổng Tiền:</strong> <span
+                                            th:text="${hd.tongTien != null ? #numbers.formatDecimal(hd.tongTien, 0, 'POINT', 0, 'COMMA') : 0} + ' VND'"></span>
+                                    </p>
                                     <p><strong>Phí Vận Chuyển:</strong>
-                                        <span th:if="${hd.phiVanChuyen != null}" th:text="${#numbers.formatDecimal(hd.phiVanChuyen, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span>
+                                        <span th:if="${hd.phiVanChuyen != null}"
+                                              th:text="${#numbers.formatDecimal(hd.phiVanChuyen, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span>
                                         <span th:if="${hd.phiVanChuyen == null}">0 VND</span>
                                     </p>
                                     <p><strong>Tiền Giảm Giá:</strong>
-                                        <span th:if="${hd.tienGiamGia != null}" th:text="${#numbers.formatDecimal(hd.tienGiamGia, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span>
+                                        <span th:if="${hd.tienGiamGia != null}"
+                                              th:text="${#numbers.formatDecimal(hd.tienGiamGia, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span>
                                         <span th:if="${hd.tienGiamGia == null}">0 VND</span>
                                     </p>
                                     <p><strong>Tổng Tiền Thanh Toán:</strong>
-                                        <span style="color: red" th:text="${#numbers.formatDecimal(hd.thanhToan ?: 0, 0, 'POINT', 0, 'COMMA')} + ' VND'"></span>
+                                        <span style="color: red"
+                                              th:text="${hd.thanhToan != null ? #numbers.formatDecimal(hd.thanhToan, 0, 'POINT', 0, 'COMMA') : 0} + ' VND'"></span>
                                     </p>
                                 </div>
                             </div>
                         </div>
 
 
-                <hr>
+                        <hr>
 
                         <div class="row mb-5">
                             <div class="site-blocks-table">
@@ -346,9 +355,10 @@
                                         <td th:text="${gioHangChiTiet.soLuong}" id="currentQuantity"></td>
                                         <td th:text="${#numbers.formatDecimal(gioHangChiTiet.donGia * gioHangChiTiet.soLuong, 0, 'POINT', 0, 'COMMA')} + ' VND'"></td>
                                         <td>
-                                            <div th:if="${(gioHangChiTiet.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).YEU_CAU_TRA_HANG)
-                         or(gioHangChiTiet.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).DA_TRA_HANG)
-                         or(gioHangChiTiet.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).TU_CHOI_TRA_HANG)
+                                            <div th:if="${gioHangChiTiet.trangThai != null and
+                                            (gioHangChiTiet.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).YEU_CAU_TRA_HANG)
+                         or(gioHangChiTiet.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).DA_TRA_HANG)
+                         or(gioHangChiTiet.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).TU_CHOI_TRA_HANG)
                          }"
                                                  th:text="${gioHangChiTiet.trangThai.getDisplayName()}"></div>
                                         </td>
@@ -356,123 +366,139 @@
                                             <button class="btn btn-outline-info btn-sm rounded-pill px-3 py-1 fw-bold shadow"
                                                     data-bs-toggle="modal"
                                                     th:data-bs-target="'#staticBackdrop' + ${gioHangChiTiet.id}"
-                                                    th:if="${(hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_GIAO)
-                    or (hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG)}"
-                                                    th:disabled="${gioHangChiTiet.trangThai == T(com.example.datnsum24sd01.enumation.TrangThai).YEU_CAU_TRA_HANG}">
+                                                    th:if="${(hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_GIAO)
+                    or (hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG)}"
+                                                    th:disabled="${gioHangChiTiet.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThai).YEU_CAU_TRA_HANG}">
                                                 <i class="fas fa-undo"></i> Yêu Cầu Trả Hàng/Hoàn Tiền
                                             </button>
-<!--                                            <div class="modal fade" th:id="'staticBackdrop' + ${gioHangChiTiet.id}"-->
-<!--                                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"-->
-<!--                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
-<!--                                                <div class="modal-dialog">-->
-<!--                                                    <div class="modal-content">-->
-<!--                                                        <div class="modal-header">-->
-<!--                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tình huống bạn đang gặp?</h1>-->
+                                            <!--                                            <div class="modal fade" th:id="'staticBackdrop' + ${gioHangChiTiet.id}"-->
+                                            <!--                                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"-->
+                                            <!--                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+                                            <!--                                                <div class="modal-dialog">-->
+                                            <!--                                                    <div class="modal-content">-->
+                                            <!--                                                        <div class="modal-header">-->
+                                            <!--                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tình huống bạn đang gặp?</h1>-->
 
-<!--                                                        </div>-->
-<!--                                                        <style>-->
-<!--                                                            .image-preview {-->
-<!--                                                                display: flex;-->
-<!--                                                                flex-wrap: wrap;-->
-<!--                                                                gap: 10px;-->
-<!--                                                            }-->
-<!--                                                            .image-preview img {-->
-<!--                                                                max-width: 100px;-->
-<!--                                                                max-height: 100px;-->
-<!--                                                            }-->
-<!--                                                        </style>-->
-<!--                                                        <div class="modal-body">-->
-<!--                                                            <h3>Nêu rõ tình huống bạn đang gặp</h3>-->
-<!--                                                            <label> -Tôi đã nhận hàng nhưng không còn nhu cầu/hàng có vấn đề (bể vỡ, sai mẫu, lỗi, khác mô tả...) - Miễn ship hoàn về</label>-->
-<!--                                                           <label>-Tôi chưa nhận hàng/nhận thiếu hàng</label>-->
-<!--                                                           <label>-Sản Phẩm sai màu sắc, kích thước - Miễn ship hoàn về</label>-->
-<!--                                                            <form th:action="@{'/beestore/put/' + ${gioHangChiTiet.id} + '/' + ${hd.id}}"-->
-<!--                                                                  method="post" th:object="${newGhct}" class="my-form reduced-height"-->
-<!--                                                                  onsubmit="return confirmSubmit()" enctype="multipart/form-data">-->
-<!--                                                                <label class="form-label">Số Lượng Sản Phẩm</label>-->
-<!--                                                                <input type="number" min="1" class="form-control mb-3" th:field="*{soLuong}" id="soLuong"/>-->
-<!--                                                                <div id="quantityError" class="text-danger"></div>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                        <style>-->
+                                            <!--                                                            .image-preview {-->
+                                            <!--                                                                display: flex;-->
+                                            <!--                                                                flex-wrap: wrap;-->
+                                            <!--                                                                gap: 10px;-->
+                                            <!--                                                            }-->
+                                            <!--                                                            .image-preview img {-->
+                                            <!--                                                                max-width: 100px;-->
+                                            <!--                                                                max-height: 100px;-->
+                                            <!--                                                            }-->
+                                            <!--                                                        </style>-->
+                                            <!--                                                        <div class="modal-body">-->
+                                            <!--                                                            <h3>Nêu rõ tình huống bạn đang gặp</h3>-->
+                                            <!--                                                            <label> -Tôi đã nhận hàng nhưng không còn nhu cầu/hàng có vấn đề (bể vỡ, sai mẫu, lỗi, khác mô tả...) - Miễn ship hoàn về</label>-->
+                                            <!--                                                           <label>-Tôi chưa nhận hàng/nhận thiếu hàng</label>-->
+                                            <!--                                                           <label>-Sản Phẩm sai màu sắc, kích thước - Miễn ship hoàn về</label>-->
+                                            <!--                                                            <form th:action="@{'/hmstore/put/' + ${gioHangChiTiet.id} + '/' + ${hd.id}}"-->
+                                            <!--                                                                  method="post" th:object="${newGhct}" class="my-form reduced-height"-->
+                                            <!--                                                                  onsubmit="return confirmSubmit()" enctype="multipart/form-data">-->
+                                            <!--                                                                <label class="form-label">Số Lượng Sản Phẩm</label>-->
+                                            <!--                                                                <input type="number" min="1" class="form-control mb-3" th:field="*{soLuong}" id="soLuong"/>-->
+                                            <!--                                                                <div id="quantityError" class="text-danger"></div>-->
 
-<!--                                                                <label class="form-label"> Chi Tiết Vấn Đề Bạn Gặp Phải ?</label>-->
-<!--                                                                <input type="text" class="form-control mb-3" name="ghiChu" th:field="*{ghiChu}"/>-->
-<!--                                                                <div id="customAlert" class="text-danger"></div>-->
+                                            <!--                                                                <label class="form-label"> Chi Tiết Vấn Đề Bạn Gặp Phải ?</label>-->
+                                            <!--                                                                <input type="text" class="form-control mb-3" name="ghiChu" th:field="*{ghiChu}"/>-->
+                                            <!--                                                                <div id="customAlert" class="text-danger"></div>-->
 
-<!--                                                                &lt;!&ndash; New image upload field &ndash;&gt;-->
-<!--                                                                <label class="form-label">Tải lên hình ảnh sản phẩm (Chụp rõ nét sản phẩm nếu gặp vấn đề)</label>-->
-
-
-<!--                                                                <div class="tab-pane" id="images" role="tabpanel">-->
+                                            <!--                                                                &lt;!&ndash; New image upload field &ndash;&gt;-->
+                                            <!--                                                                <label class="form-label">Tải lên hình ảnh sản phẩm (Chụp rõ nét sản phẩm nếu gặp vấn đề)</label>-->
 
 
-<!--                                                                    <div class="row">-->
-<!--                                                                        <div class="col border m-3 p-2">-->
-<!--                                                                            <label>  Ảnh Sản Phẩm</label>-->
-<!--                                                                            <div>-->
-
-<!--                                                                                <label>-->
-<!--                                                                                    <ul id="imageList" style="list-style-type: none; display: flex; gap: 10px;"></ul>-->
-<!--                                                                                </label>-->
-<!--                                                                            </div>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
-<!--                                                                    <input type="file" multiple id="hinhAnh" name="hinhAnh" onchange="previewImages(event)"-->
-<!--                                                                           accept="image/png,image/jpeg,img/jpg,img/jfif"/>-->
-<!--                                                                </div>-->
-
-<!--                                                                <div class="modal-footer" style="margin-left: 200px">-->
-<!--                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>-->
-<!--                                                                    <button type="submit" class="btn btn-primary">Xác Nhận</button>-->
-<!--                                                                </div>-->
-<!--                                                            </form>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                -->
-<!--                                            </div>-->
+                                            <!--                                                                <div class="tab-pane" id="images" role="tabpanel">-->
 
 
+                                            <!--                                                                    <div class="row">-->
+                                            <!--                                                                        <div class="col border m-3 p-2">-->
+                                            <!--                                                                            <label>  Ảnh Sản Phẩm</label>-->
+                                            <!--                                                                            <div>-->
+
+                                            <!--                                                                                <label>-->
+                                            <!--                                                                                    <ul id="imageList" style="list-style-type: none; display: flex; gap: 10px;"></ul>-->
+                                            <!--                                                                                </label>-->
+                                            <!--                                                                            </div>-->
+                                            <!--                                                                        </div>-->
+                                            <!--                                                                    </div>-->
+                                            <!--                                                                    <input type="file" multiple id="hinhAnh" name="hinhAnh" onchange="previewImages(event)"-->
+                                            <!--                                                                           accept="image/png,image/jpeg,img/jpg,img/jfif"/>-->
+                                            <!--                                                                </div>-->
+
+                                            <!--                                                                <div class="modal-footer" style="margin-left: 200px">-->
+                                            <!--                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>-->
+                                            <!--                                                                    <button type="submit" class="btn btn-primary">Xác Nhận</button>-->
+                                            <!--                                                                </div>-->
+                                            <!--                                                            </form>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                    </div>-->
+                                            <!--                                                </div>-->
+                                            <!--                                                -->
+                                            <!--                                            </div>-->
 
 
-                                                                                        <div class="modal fade" th:id="'staticBackdrop' + ${gioHangChiTiet.id}"
+                                            <div class="modal fade" th:id="'staticBackdrop' + ${gioHangChiTiet.id}"
                                                  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                  aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tình huống bạn đang gặp?</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel1">Tình
+                                                                huống bạn đang gặp?</h1>
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <h3>Nêu rõ tình huống bạn đang gặp</h3>
                                                             <div class="mb-3">
-                                                                <label>- Tôi đã nhận hàng nhưng không còn nhu cầu/hàng có vấn đề (bể vỡ, sai mẫu, lỗi, khác mô tả...) - Miễn ship hoàn về</label><br>
+                                                                <label>- Tôi đã nhận hàng nhưng không còn nhu cầu/hàng
+                                                                    có vấn đề (bể vỡ, sai mẫu, lỗi, khác mô tả...) -
+                                                                    Miễn ship hoàn về</label><br>
                                                                 <label>- Tôi chưa nhận hàng/nhận thiếu hàng</label><br>
-                                                                <label>- Sản Phẩm sai màu sắc, kích thước - Miễn ship hoàn về</label>
+                                                                <label>- Sản Phẩm sai màu sắc, kích thước - Miễn ship
+                                                                    hoàn về</label>
                                                             </div>
-                                                            <form th:action="@{'/beestore/put/' + ${gioHangChiTiet.id} + '/' + ${hd.id}}"
-                                                                  method="post" th:object="${newGhct}" class="my-form" onsubmit="return confirmSubmit()" enctype="multipart/form-data">
+                                                            <form th:action="@{'/hmstore/put/' + ${gioHangChiTiet.id} + '/' + ${hd.id}}"
+                                                                  method="post" th:object="${newGhct}" class="my-form"
+                                                                  onsubmit="return confirmSubmit()"
+                                                                  enctype="multipart/form-data">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Số Lượng Sản Phẩm</label>
-                                                                    <input type="number" min="1" class="form-control" th:field="*{soLuong}" id="soLuong"/>
+                                                                    <input type="number" min="1" class="form-control"
+                                                                           th:field="*{soLuong}" id="soLuong"/>
                                                                     <div id="quantityError" class="text-danger"></div>
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label class="form-label">Chi Tiết Vấn Đề Bạn Gặp Phải?</label>
-                                                                    <input type="text" class="form-control" name="ghiChu" th:field="*{ghiChu}"/>
+                                                                    <label class="form-label">Chi Tiết Vấn Đề Bạn Gặp
+                                                                        Phải?</label>
+                                                                    <input type="text" class="form-control"
+                                                                           name="ghiChu" th:field="*{ghiChu}"/>
                                                                     <div id="customAlert" class="text-danger"></div>
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label class="form-label">Tải lên hình ảnh sản phẩm (Chụp rõ nét sản phẩm nếu gặp vấn đề)</label>
-                                                                    <input type="file" multiple id="hinhAnh" name="hinhAnh" onchange="previewImages(event)"
+                                                                    <label class="form-label">Tải lên hình ảnh sản phẩm
+                                                                        (Chụp rõ nét sản phẩm nếu gặp vấn đề)</label>
+                                                                    <input type="file" multiple id="hinhAnh"
+                                                                           name="hinhAnh"
+                                                                           onchange="previewImages(event)"
                                                                            accept="image/png,image/jpeg,image/jpg,image/jfif"/>
-                                                                    <div id="imagePreview" class="image-preview mt-3"></div>
+                                                                    <div id="imagePreview"
+                                                                         class="image-preview mt-3"></div>
                                                                 </div>
 
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                                                    <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Đóng
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary">Xác
+                                                                        Nhận
+                                                                    </button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -489,7 +515,7 @@
                                                     for (const file of event.target.files) {
                                                         if (file) {
                                                             const reader = new FileReader();
-                                                            reader.onload = function(e) {
+                                                            reader.onload = function (e) {
                                                                 const img = document.createElement('img');
                                                                 img.src = e.target.result;
                                                                 img.classList.add('img-thumbnail');
@@ -508,6 +534,7 @@
                                                     display: flex;
                                                     gap: 10px;
                                                 }
+
                                                 .img-thumbnail {
                                                     border: 1px solid #ddd;
                                                     border-radius: 4px;
@@ -538,12 +565,12 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Huỷ Đơn Hàng</h1>
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel2">Huỷ Đơn Hàng</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
                                             <!-- Inside the modal-body -->
-                                            <form th:action="@{/beestore/validation/deny}" method="post"
+                                            <form th:action="@{/hmstore/validation/deny}" method="post"
                                                   class="my-form reduced-height">
                                                 <div class="modal-body">
                                                     <input type="hidden" name="id" th:value="${hd.id}"/>
@@ -565,19 +592,19 @@
                             </div>
 
 
-                            <div class="button-container" >
+                            <div class="button-container">
                                 <button class="btn-link1"
                                         data-bs-toggle="modal"
                                         th:data-bs-target="'#staticBackdrop3'"
-                                        th:disabled="${hd.trangThai != T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).CHO_XAC_NHAN
-                     and hd.trangThai != T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DANG_CHUAN_BI}">
+                                        th:disabled="${hd.trangThai != T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).CHO_XAC_NHAN
+                     and hd.trangThai != T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DANG_CHUAN_BI}">
                                     Huỷ Đơn Hàng
                                 </button>
-                                <form th:action="@{/beestore/validation}" method="post" class="my-form reduced-height">
-                                    <input type="hidden" name="id" th:value="${hd.id}" />
+                                <form th:action="@{/hmstore/validation}" method="post" class="my-form reduced-height">
+                                    <input type="hidden" name="id" th:value="${hd.id}"/>
                                     <button class="btn-link" type="submit"
                                             data-bs-toggle="modal"
-                                            th:disabled="${hd.trangThai != T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_GIAO}"
+                                            th:disabled="${hd.trangThai != T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_GIAO}"
                                     >
                                         Đã nhận được hàng
                                     </button>
@@ -592,6 +619,7 @@
                                 display: flex;
                                 align-items: center;
                             }
+
                             /* Các thuộc tính khác của nút */
                             .btn-link {
                                 font-size: 16px;
@@ -674,14 +702,13 @@
     <div class="container relative">
 
 
-
-
         <div class="row">
             <div class="col-lg-6">
                 <div class="subscription-form">
                     <h3 class="d-flex align-items-center"><span class="me-1"><img src="../images/envelope-outline.svg"
                                                                                   alt="Image"
-                                                                                  class="img-fluid"></span><span style="color: black" >Đăng ký nhận thông tin khuyến Mại</span>
+                                                                                  class="img-fluid"></span><span
+                            style="color: black">Đăng ký nhận thông tin khuyến Mại</span>
                     </h3>
 
                     <form action="#" class="row g-3">
@@ -703,15 +730,21 @@
             <div class="col-lg-6">
 
 
-                <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8836968727605!2d105.74640787500061!3d21.03733908748429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345515f14a641f%3A0xe7f2a647f98416cb!2sFPT%20Polytechnic!5e0!3m2!1sen!2s!4v1696820790226!5m2!1sen!2s" width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><!-- End #map -->
+                <div id="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.292401303918!2d105.784841575723!3d20.980912980656466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1735323494270!5m2!1svi!2s"
+                            width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div><!-- End #map -->
 
             </div>
         </div>
 
-        <div class="row g-5 mb-5" style="color: black" >
+        <div class="row g-5 mb-5" style="color: black">
             <div class="col-lg-4">
-                <div style="color: black"  class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo" style="color: black" >BeeStore<span></span></a></div>
-                <p style="color: black" class="mb-4"> Hệ thống giày thể thao số 1 Hà Nội</p>
+                <div style="color: black" class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo"
+                                                                           style="color: black">HMStore<span></span></a>
+                </div>
+                <p style="color: black" class="mb-4"> Hệ thống đồ thể thao số 1 Hà Nội</p>
 
 
             </div>
@@ -761,12 +794,11 @@
                 <div class="col-lg-6">
                     <p class="mb-2 text-center text-lg-start">Chủ sở hữu &copy;
                         <script>document.write(new Date().getFullYear());</script> &mdash;
-                        BEESTORE_SD01_SUM24
+                        HMStore_PTIT_D20
 
                         <!-- License information: https://untree.co/license/ -->
                     </p>
                 </div>
-
 
 
             </div>

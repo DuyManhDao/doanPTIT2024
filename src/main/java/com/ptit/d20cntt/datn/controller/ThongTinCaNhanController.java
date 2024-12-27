@@ -5,7 +5,7 @@ import com.ptit.d20cntt.datn.request.DiaChiRequest;
 import com.ptit.d20cntt.datn.request.KhachHangRequest;
 import com.ptit.d20cntt.datn.service.DiaChiService;
 import com.ptit.d20cntt.datn.service.KhachHangService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ThongTinCaNhanController {
     private final KhachHangService khachHangService;
     private final DiaChiService diaChiService;
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     public ThongTinCaNhanController(KhachHangService khachHangService, DiaChiService diaChiService) {
         this.khachHangService = khachHangService;
@@ -45,7 +45,7 @@ public class ThongTinCaNhanController {
         model.addAttribute("khachHang", khachHang);
         model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(id));
         model.addAttribute("diaChi", new DiaChiRequest());
-        return "customer-template/ThongTinTaiKhoan";
+        return "/customer-template/thong_tin_tai_khoan";
     }
 
     /**
@@ -69,14 +69,14 @@ public class ThongTinCaNhanController {
             model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(id));
             model.addAttribute("diaChi", new DiaChiRequest());
             model.addAttribute("errorTen", "Số điện thoại đã tồn tại");
-            return "customer-template/ThongTinTaiKhoan";
+            return "/customer-template/thong_tin_tai_khoan";
         }
         if (bindingResult.hasErrors()) {
             model.addAttribute("khachHang", khachHang);
             model.addAttribute("errorTen", "Số điện thoại hoặc tên không được để trống");
             model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(id));
             model.addAttribute("diaChi", new DiaChiRequest());
-            return "customer-template/ThongTinTaiKhoan";
+            return "/customer-template/thong_tin_tai_khoan";
         }
         model.addAttribute("success", "Cập nhật thành công!");
         khachHangService.update(khachHangRequest);
@@ -128,21 +128,21 @@ public class ThongTinCaNhanController {
             model.addAttribute("diaChi", new DiaChiRequest());
             model.addAttribute("khachHang", khachHang);
             model.addAttribute("errorTen", "Tên người nhận không được để trống!");
-            return "customer-template/ThongTinTaiKhoan";
+            return "/customer-template/thong_tin_tai_khoan";
         }
         if (diaChiRequest.getSdt().isEmpty()) {
             model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(idKH));
             model.addAttribute("diaChi", new DiaChiRequest());
             model.addAttribute("khachHang", khachHang);
             model.addAttribute("errorTen", "Số điện thoại không được để trống!");
-            return "customer-template/ThongTinTaiKhoan";
+            return "/customer-template/thong_tin_tai_khoan";
         }
         if (diaChiRequest.getDiaChi().isEmpty()) {
             model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(idKH));
             model.addAttribute("diaChi", new DiaChiRequest());
             model.addAttribute("khachHang", khachHang);
             model.addAttribute("errorTen", "Địa chỉ không được để trống!");
-            return "customer-template/ThongTinTaiKhoan";
+            return "/customer-template/thong_tin_tai_khoan";
         } else {
             diaChiService.update(diaChiRequest, thanhPho, quanHuyen, phuongXa);
         }

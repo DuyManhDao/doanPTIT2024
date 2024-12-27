@@ -23,6 +23,7 @@ public interface ChiTietSanPhamCustom {
     BigDecimal getGiaBan();
 
     Integer getTrangThai();
+
     List<AnhBia> listAnh();
 
     String getAnhChinh();

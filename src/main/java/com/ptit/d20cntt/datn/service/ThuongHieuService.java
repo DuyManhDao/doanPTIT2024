@@ -8,23 +8,23 @@ import java.util.List;
 
 public interface ThuongHieuService {
 
-    List<ThuongHieu> getList();
+	List<ThuongHieu> getList();
 
-    List<ThuongHieu> getByTrangThai(TrangThai trangThai);
+	List<ThuongHieu> getByTrangThai(TrangThai trangThai);
 
-    ThuongHieu save(ThuongHieuRequest request);
+	ThuongHieu save(ThuongHieuRequest request);
 
-    ThuongHieu update(ThuongHieuRequest request);
+	ThuongHieu update(ThuongHieuRequest request);
 
-    void remove(Long id);
+	void remove(Long id);
 
-    ThuongHieu findById(Long id);
+	ThuongHieu findById(Long id);
 
-    boolean existByMa(String ma);
+	boolean existByMa(String ma);
 
-    boolean existsByTen(String ten);
+	boolean existsByTen(String ten);
 
-    boolean existsByTenAndIdNot(String ten, Long id);
+	boolean existsByTenAndIdNot(String ten, Long id);
 
-    Integer transferPage(Integer pageNo);
+	Integer transferPage(Integer pageNo);
 }

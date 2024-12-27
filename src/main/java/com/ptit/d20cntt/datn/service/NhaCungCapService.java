@@ -7,25 +7,22 @@ import com.ptit.d20cntt.datn.request.NhaCungCapRequest;
 import java.util.List;
 
 public interface NhaCungCapService {
-    List<NhaCungCap> getList();
+	List<NhaCungCap> getList();
 
-    List<NhaCungCap> getByTrangThai(TrangThai trangThai);
+	List<NhaCungCap> getByTrangThai(TrangThai trangThai);
 
-    NhaCungCap save(NhaCungCapRequest request);
+	NhaCungCap save(NhaCungCapRequest request);
 
-    NhaCungCap update(NhaCungCapRequest request);
+	NhaCungCap update(NhaCungCapRequest request);
 
-    void remove(Long id);
+	void remove(Long id);
 
-    NhaCungCap findById(Long id);
+	NhaCungCap findById(Long id);
 
+	boolean existByMa(String ma);
 
-    boolean existByMa(String ma);
+	boolean existsByTen(String ten);
 
-    boolean existsByTen(String ten);
-
-
-    boolean existsByTenAndIdNot(String ten, Long id);
-
+	boolean existsByTenAndIdNot(String ten, Long id);
 
 }

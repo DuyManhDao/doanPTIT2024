@@ -4,7 +4,7 @@ import com.ptit.d20cntt.datn.entity.NhanVien;
 import com.ptit.d20cntt.datn.request.NhanVienRequest;
 import com.ptit.d20cntt.datn.responsitory.NhanVienRepository;
 import com.ptit.d20cntt.datn.service.NhanVienService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -42,7 +42,7 @@ public class NhanVienController {
         }
     }
 
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
     @GetMapping()
     public String getAll(Model model) {
         Long idNhanVien = spingsecurity.getCurrentNhanVienId();

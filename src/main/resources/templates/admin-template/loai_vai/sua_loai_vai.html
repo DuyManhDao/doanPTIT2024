@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>BeeStore Admin</title>
+    <title>HMStore Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="/../../img/e77e3572384e5c9af495d1acfbfa6f70.jpg" rel="icon">
+    <link href="/../../img/hm.jpg" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
         <nav class="navbar bg-light navbar-light">
             <a th:href="@{/admin/ban-hang}" class="navbar-brand mx-4 mb-3">
 
-                <h3 style="color: orange"><i class="me-2"></i>BeeStore </h3>
+                <h3 style="color: orange"><i class="me-2"></i>HMStore </h3>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
@@ -65,7 +65,7 @@
                         <a th:href="@{/admin/thuong-hieu}" class="dropdown-item">* Thương Hiệu</a>
                         <a th:href="@{/admin/mau-sac}" class="dropdown-item">* Màu Sắc</a>
                         <a th:href="@{/admin/kich-thuoc}" class="dropdown-item"> * Kích Thước</a>
-                        <a th:href="@{/admin/de-giay}" class="dropdown-item">* Đế Giày</a>
+                        <a th:href="@{/admin/loai-vai}" class="dropdown-item">* Loại vải</a>
 
                     </div>
                 </div>
@@ -111,17 +111,17 @@
         </nav>
 
         <div class="container-fluid pt-4">
-            <h6 class="mb-4" style="font-size: 40px; text-align: center;">Chi Tiết Đế Giày</h6>
+            <h6 class="mb-4" style="font-size: 40px; text-align: center;">Chi Tiết Loại vải</h6>
             <div class="bg-light rounded p-4" style="width: 50%; margin-left: 26%;">
-                <form action="#" th:action="@{/admin/de-giay/suaDeGiay}" th:object="${deGiayUpdate}"
+                <form action="#" th:action="@{/admin/loai-vai/suaLoaiVai}" th:object="${loaiVaiUpdate}"
                       onsubmit="return validateForm(event)" method="post">
                     <input type="text" class="form-control" th:field="*{id}" hidden readonly th:name="idUpdate"/>
                     <div class="mb-3">
-                        <label for="ma" class="form-label">Mã Đế Giày</label>
+                        <label for="ma" class="form-label">Mã Loại vải</label>
                         <input type="text" class="form-control" id="ma" name="ma" th:field="*{ma}" readonly/>
                     </div>
                     <div class="mb-3">
-                        <label for="ten" class="form-label">Tên Đế Giày</label>
+                        <label for="ten" class="form-label">Tên Loại vải</label>
                         <input type="text" class="form-control" id="ten" name="ten" th:field="*{ten}"/>
                     </div>
 <!--                    <div class="mb-3">-->
@@ -133,7 +133,7 @@
 <!--                        <input type="text" class="form-control" id="ngaySua" name="ngaySua" th:field="*{ngaySua}"/>-->
 <!--                    </div>-->
                     <button type="submit" class="btn btn-outline-primary " style="margin-left: 40%;">
-                        Sửa Đế Giày
+                        Sửa Loại vải
                     </button>
                 </form>
 

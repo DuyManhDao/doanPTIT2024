@@ -20,26 +20,37 @@ public class NhanVien {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
     @Column(name = "ma")
     private String ma;
+
     @Column(name = "ten")
     private String ten;
+
     @Column(name = "gioi_tinh")
     private boolean gioiTinh;
+
     @Column(name = "sdt")
     private String sdt;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "dia_chi")
     private String diachi;
+
     @Column(name = "cccd")
     private String canCuocCongDan;
+
     @Column(name = "mat_khau")
     private String matKhau;
+
     @Column(name = "ngay_tao")
     private LocalDateTime ngayTao;
+
     @Column(name = "ngay_sua")
     private LocalDateTime ngaySua;
+
     @Column(name = "trang_thai")
     private int trangThai;
 }

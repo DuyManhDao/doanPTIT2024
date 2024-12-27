@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.controller;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.NhaCungCapRequest;
 import com.ptit.d20cntt.datn.service.NhaCungCapService;
-import com.ptit.d20cntt.datn.worker.Spingsecurity;
+import com.ptit.d20cntt.datn.worker.SpingSecurity;
 import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ import java.util.List;
 @RequestMapping("/admin/nha-cung-cap")
 public class NhaCungCapController {
 
-    private Spingsecurity spingsecurity = new Spingsecurity();
+    private SpingSecurity spingsecurity = new SpingSecurity();
 
     private final NhaCungCapService nhaCungCapService;
 

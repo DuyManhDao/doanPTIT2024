@@ -4,8 +4,8 @@ import com.ptit.d20cntt.datn.entity.DiaChi;
 import com.ptit.d20cntt.datn.entity.KhachHang;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.DiaChiRequest;
-import com.ptit.d20cntt.datn.responsitory.DiaChiResponsitory;
-import com.ptit.d20cntt.datn.responsitory.KhachHangResponsitory;
+import com.ptit.d20cntt.datn.responsitory.DiaChiRepository;
+import com.ptit.d20cntt.datn.responsitory.KhachHangRepository;
 import com.ptit.d20cntt.datn.service.DiaChiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +18,10 @@ import java.util.Optional;
 public class DiaChiServiceImpl implements DiaChiService {
 
     @Autowired
-    private DiaChiResponsitory repository;
+    private DiaChiRepository repository;
 
     @Autowired
-    private KhachHangResponsitory khachHangRepository;
+    private KhachHangRepository khachHangRepository;
 
     @Override
     public List<DiaChi> getAll() {

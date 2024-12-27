@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface BanHangOnlineResponsitory extends JpaRepository<ChiTietSanPham, Long> {
+public interface BanHangOnlineRepository extends JpaRepository<ChiTietSanPham, Long> {
 
 
 //random sp
@@ -23,11 +23,11 @@ public interface BanHangOnlineResponsitory extends JpaRepository<ChiTietSanPham,
 
 
 
-    @Query(value = "select san_pham.ten as tenSp, san_pham.anh_chinh, chi_tiet_san_pham.id, chi_tiet_san_pham.gia_ban, chi_tiet_san_pham.gia_mac_dinh, de_giay.ten as tenDe_giay,\n" +
+    @Query(value = "select san_pham.ten as tenSp, san_pham.anh_chinh, chi_tiet_san_pham.id, chi_tiet_san_pham.gia_ban, chi_tiet_san_pham.gia_mac_dinh, loai_vai.ten as tenLoai_vaii,\n" +
             " dong_san_pham.ten as tenDongSp, kich_thuoc.ten as tenKich_thuoc, mau_sac.ten as tenMau_sac\n" +
             "from chi_tiet_san_pham\n" +
             "join san_pham on chi_tiet_san_pham.id_san_pham = san_pham.id \n" +
-            "join de_giay on chi_tiet_san_pham.id_de_giay = de_giay.id \n" +
+            "join loai_vai on chi_tiet_san_pham.id_loai_vai = loai_vai.id \n" +
             "join dong_san_pham on san_pham.id_dong_san_pham = dong_san_pham.id\n" +
             "join kich_thuoc on chi_tiet_san_pham.id_kich_thuoc = kich_thuoc.id\n" +
             "join mau_sac on chi_tiet_san_pham.id_mau_sac = mau_sac.id\n" +
@@ -35,11 +35,11 @@ public interface BanHangOnlineResponsitory extends JpaRepository<ChiTietSanPham,
     List<ChiTietSanPhamCustomerCt> list3Custom();
 
 
-    @Query(value = "select san_pham.ten as tenSp, san_pham.anh_chinh, chi_tiet_san_pham.id, chi_tiet_san_pham.gia_ban, chi_tiet_san_pham.gia_mac_dinh, de_giay.ten as tenDe_giay,\n" +
+    @Query(value = "select san_pham.ten as tenSp, san_pham.anh_chinh, chi_tiet_san_pham.id, chi_tiet_san_pham.gia_ban, chi_tiet_san_pham.gia_mac_dinh, loai_vai.ten as tenLoai_vaii,\n" +
             " dong_san_pham.ten as tenDongSp, kich_thuoc.ten as tenKich_thuoc, mau_sac.ten as tenMau_sac\n" +
             "from chi_tiet_san_pham\n" +
             "join san_pham on chi_tiet_san_pham.id_san_pham = san_pham.id \n" +
-            "join de_giay on chi_tiet_san_pham.id_de_giay = de_giay.id \n" +
+            "join loai_vai on chi_tiet_san_pham.id_loai_vai = loai_vai.id \n" +
             "join dong_san_pham on san_pham.id_dong_san_pham = dong_san_pham.id\n" +
             "join kich_thuoc on chi_tiet_san_pham.id_kich_thuoc = kich_thuoc.id\n" +
             "join mau_sac on chi_tiet_san_pham.id_mau_sac = mau_sac.id\n" +
