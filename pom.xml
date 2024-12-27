@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>DATN-SUM24-SD01</artifactId>
+    <artifactId>ptit-datn-2024</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DATN-SUM24-SD01</name>
     <description>DATN-SUM24-SD01</description>

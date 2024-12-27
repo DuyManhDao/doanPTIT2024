@@ -273,47 +273,47 @@
                             <tbody>
 <!--                            <tr th:each="hd,state : ${hoadons}">-->
 <!--                                <td>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}" th:text="${state.index+1}"-->
 <!--                                       style="color: black;"></a>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}" th:text="${state.index+1}"-->
 <!--                                       style="color: black;"></a>-->
 <!--                                </td>-->
 <!--                                <td>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}" th:text="${hd.ma}"-->
 <!--                                       style="color: black;"></a>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}" th:text="${hd.ma}"-->
 <!--                                       style="color: black;"></a>-->
 <!--                                </td>-->
 <!--                                <td>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}"-->
 <!--                                       th:text="${hd.loaiHoaDon.getDisplayName()}"-->
 <!--                                       style="color: black;"></a>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}"-->
 <!--                                       th:text="${hd.loaiHoaDon.getDisplayName()}"-->
 <!--                                       style="color: black;"></a>-->
 <!--                                </td>-->
 <!--                                <td>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}"-->
 <!--                                       th:text="${hd.trangThai.getDisplayName()}"-->
 <!--                                       style="color: black;"></a>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}"-->
 <!--                                       th:text="${hd.trangThai.getDisplayName()}"-->
 <!--                                       style="color: black;"></a>-->
 <!--                                </td>-->
 <!--                                <td>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-hoa-don/' + ${hd.id}}"-->
 <!--                                       th:text="${#numbers.formatDecimal(hd.thanhToan ?: 0, 0, 'POINT', 0, 'COMMA')} + ' VND'"-->
 <!--                                       style="color: black;"></a>-->
-<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
+<!--                                    <a th:if="${(hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_ONLINE)}"-->
 <!--                                       th:href="@{'/admin/hoa-don/chi-tiet-gio-hang/' + ${hd.id}}"-->
 <!--                                       th:text="${#numbers.formatDecimal(hd.thanhToan ?: 0, 0, 'POINT', 0, 'COMMA')} + ' VND'"-->
 <!--                                       style="color: black;"></a>-->
@@ -324,12 +324,12 @@
 <!--                                                data-bs-toggle="modal"-->
 <!--                                                th:data-bs-target="'#ghiChu' + ${hd.id}"-->
 <!--                                                th:disabled="${hd.trangThai ==-->
-<!--            T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).HOAN_THANH}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_TRA_HANG}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DOI_HANG}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_HUY}-->
-<!--            or ${hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE}"-->
+<!--            T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).HOAN_THANH}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_TRA_HANG}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DOI_HANG}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_HUY}-->
+<!--            or ${hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE}"-->
 <!--                                                style="margin-right: 10px;">-->
 <!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">-->
 <!--                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022"/>-->
@@ -340,15 +340,15 @@
 <!--                                        <button class="btn btn-outline-danger"-->
 <!--                                                data-bs-toggle="modal"-->
 <!--                                                th:data-bs-target="'#huyDon' + ${hd.id}"-->
-<!--                                                th:disabled="${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).HOAN_THANH}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_TRA_HANG}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DANG_GIAO}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DANG_CHUAN_BI}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_GIAO}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DOI_HANG}-->
-<!--            or ${hd.trangThai == T(com.example.datnsum24sd01.enumation.TrangThaiDonHang).DA_HUY}-->
-<!--            or ${hd.loaiHoaDon == T(com.example.datnsum24sd01.enumation.LoaiHoaDon).HOA_DON_OFFLINE}"-->
+<!--                                                th:disabled="${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).HOAN_THANH}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_TRA_HANG}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DANG_GIAO}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DANG_CHUAN_BI}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_GIAO}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).XAC_NHAN_TRA_HANG}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DOI_HANG}-->
+<!--            or ${hd.trangThai == T(com.ptit.d20cntt.datn.enumation.TrangThaiDonHang).DA_HUY}-->
+<!--            or ${hd.loaiHoaDon == T(com.ptit.d20cntt.datn.enumation.LoaiHoaDon).HOA_DON_OFFLINE}"-->
 <!--                                                style="margin-left: 3px;">-->
 <!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">-->
 <!--                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>-->
