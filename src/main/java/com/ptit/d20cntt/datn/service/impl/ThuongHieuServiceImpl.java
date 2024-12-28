@@ -40,7 +40,7 @@ public class ThuongHieuServiceImpl implements ThuongHieuService {
         thuongHieu.setNgaySua(LocalDate.now());
         thuongHieu.setTrangThai(TrangThai.DANG_HOAT_DONG);
        ThuongHieu mauSacAddLater = repository.save(thuongHieu);
-        String maMS = "TH" + mauSacAddLater.getId().toString();
+        String maMS = "TH" +  String.format("%03d", mauSacAddLater.getId());
         mauSacAddLater.setMa(maMS);
         return repository.save(mauSacAddLater);
     }

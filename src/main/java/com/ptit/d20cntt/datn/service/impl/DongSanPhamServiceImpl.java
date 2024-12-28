@@ -39,8 +39,8 @@ public class DongSanPhamServiceImpl implements DongSanPhamService {
         dongSanPham.setNgayTao(LocalDate.now());
         dongSanPham.setNgaySua(LocalDate.now());
         dongSanPham.setTrangThai(TrangThai.DANG_HOAT_DONG);
-         DongSanPham dongspauto = repository.save(dongSanPham);
-        String maKT = "DSP" + dongspauto.getId().toString();
+        DongSanPham dongspauto = repository.save(dongSanPham);
+        String maKT = "DSP" + String.format("%03d", dongspauto.getId());
        dongspauto.setMa(maKT);
         return repository.save(dongSanPham);
     }

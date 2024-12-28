@@ -32,7 +32,7 @@ public class MauSacServiceImpl implements MauSacService {
         mauSac.setTen(mauSacRequest.getTen());
 
         MauSac mauSacAddLater = mauSacRepository.save(mauSac);
-        String maMS = "MS" + mauSacAddLater.getId().toString();
+        String maMS = "MS" +  String.format("%03d", mauSacAddLater.getId());
         mauSacAddLater.setMa(maMS);
         return mauSacRepository.save(mauSacAddLater);
     }

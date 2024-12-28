@@ -50,7 +50,7 @@ public class NhanVienServiceImpl implements NhanVienService {
 		nhanVien.setNgayTao(currentDateTime);
 
 		NhanVien nhanVienAddLater = nhanVienRepository.save(nhanVien);
-		String maNV = "NV" + nhanVienAddLater.getId().toString();
+		String maNV = "NV" + String.format("%03d", nhanVienAddLater.getId());
 		nhanVienAddLater.setMa(maNV);
 
 		emailService.sendNewAccountNVEmail(nhanVien.getEmail(), nhanVien.getEmail(), generatedPassword);

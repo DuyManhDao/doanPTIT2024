@@ -42,6 +42,8 @@ public class ThongTinCaNhanController {
             return "redirect:/login";
         }
         KhachHang khachHang = khachHangService.getById(id);
+
+        model.addAttribute("checkSecurity", true);
         model.addAttribute("khachHang", khachHang);
         model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(id));
         model.addAttribute("diaChi", new DiaChiRequest());
@@ -64,6 +66,13 @@ public class ThongTinCaNhanController {
         Long id = khachHangRequest.getId();
         String sdt = khachHangRequest.getSdt();
         KhachHang khachHang = khachHangService.getById(id);
+
+        if (id != null) {
+            model.addAttribute("checkSecurity", true);
+        } else {
+            model.addAttribute("checkSecurity", false);
+        }
+
         if (khachHangService.existsBySdtAndIdNot(sdt, id)) {
             model.addAttribute("khachHang", khachHang);
             model.addAttribute("listDC", diaChiService.getAllTheoKhachHang(id));

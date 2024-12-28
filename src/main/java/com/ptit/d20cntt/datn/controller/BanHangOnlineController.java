@@ -171,12 +171,13 @@ public class BanHangOnlineController {
 		if (idKhachHang != null) {
 			List<GioHangChiTiet> listGioHangChiTiet = gioHangChiTietService.getAll(idKhachHang);
 
+			model.addAttribute("checkSecurity", true);
+
 			if (listGioHangChiTiet != null) {
 				model.addAttribute("listGioHangChiTiet", listGioHangChiTiet);
 				int totalQuantity = listGioHangChiTiet.stream().mapToInt(GioHangChiTiet::getSoLuong).sum();
 				model.addAttribute("totalQuantity", totalQuantity);
 				model.addAttribute("loginStatus", true);
-				model.addAttribute("checkSecurity", true);
 			}
 		}
 
@@ -188,6 +189,7 @@ public class BanHangOnlineController {
 
 		Long idKhachHang = spingsecurity.getCurrentUserId();
 		Boolean checkSecurity = false;
+
 		if (idKhachHang != null) {
 			List<GioHangChiTiet> listGioHangChiTiet = gioHangChiTietService.getAll(idKhachHang);
 

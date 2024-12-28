@@ -12,6 +12,6 @@ import java.io.IOException;
 public class CustomerAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        response.sendRedirect("/hmstore/login?error");
+        response.sendRedirect("/login?error");
     }
 }
