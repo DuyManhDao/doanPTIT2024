@@ -39,7 +39,7 @@ public class NhaCungCapServiceImpl implements NhaCungCapService {
         nhacungcap.setNgaySua(LocalDate.now());
         nhacungcap.setTrangThai(TrangThai.DANG_HOAT_DONG);
     NhaCungCap nhaCungCaplater = repository.save(nhacungcap);
-        String mancc = "NCC" + nhaCungCaplater.getId().toString();
+        String mancc = "NCC" +  String.format("%03d", nhaCungCaplater.getId());
         nhaCungCaplater.setMa(mancc);
         return repository.save(nhaCungCaplater);
     }

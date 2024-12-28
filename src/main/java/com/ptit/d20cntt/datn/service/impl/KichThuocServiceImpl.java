@@ -31,9 +31,16 @@ public class KichThuocServiceImpl implements KhichThuocService {
         kichThuoc.setNgayTao(currentDateTime);
         kichThuoc.setTen(kichThuocRequest.getTen());
 
+        // Check if a KichThuoc with the same 'ma' already exists
+        Optional<KichThuoc> existingKichThuoc = kichThuocRepository.findByMa(kichThuocRequest.getMa());
+        if (existingKichThuoc.isPresent()) {
+            throw new DataIntegrityViolationException("Duplicate entry for key 'kich_thuoc.UK_qtq2dqyq8ut9lu7xir4c01y0u'");
+        }
+
         KichThuoc kichThuocAddLater = kichThuocRepository.save(kichThuoc);
-        String maKT = "KT" + kichThuocAddLater.getId().toString();
+        String maKT = "KT" + String.format("%03d", kichThuocAddLater.getId());
         kichThuocAddLater.setMa(maKT);
+
         return kichThuocRepository.save(kichThuocAddLater);
     }
 

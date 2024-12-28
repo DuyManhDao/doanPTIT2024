@@ -71,10 +71,12 @@ public class AdminLoginController {
 
     }
     @GetMapping("/default")
-    public String defaultAfterLogin(HttpServletRequest request) {
+    public String defaultAfterLogin(HttpServletRequest request, Model model) {
         if (request.isUserInRole("ROLE_ADMIN")) {
             return "redirect:/admin/ban-hang";
         }
+
+        model.addAttribute("checkSecurity", true);
         return "redirect:/hmstore/trang-chu";
 
     }

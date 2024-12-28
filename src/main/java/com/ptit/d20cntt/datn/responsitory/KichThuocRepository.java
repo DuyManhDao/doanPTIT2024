@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface KichThuocRepository extends JpaRepository<KichThuoc,Long> {
 
@@ -15,5 +16,7 @@ public interface KichThuocRepository extends JpaRepository<KichThuoc,Long> {
             "WHERE ctsp.id_san_pham = :productId",
             nativeQuery = true)
     List<KichThuoc> findByProductId(@Param("productId") Long productId);
+
+    Optional<KichThuoc> findByMa(String ma);
 
 }

@@ -78,7 +78,7 @@
                     </div>
                     <div th:if="${!checkSecurity}">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" th:href="'/hmstore/login'">Đăng nhập</a>
+                            <a class="dropdown-item" th:href="'/login'">Đăng nhập</a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <span>Số lượng Tồn: [[${gioHangChiTiet.chiTietSanPham.soLuongTon}]]</span>
+                                <span>Số lượng trong kho: [[${gioHangChiTiet.chiTietSanPham.soLuongTon}]]</span>
                             </td>
 
                             <td class="thanhtien"
@@ -539,7 +539,7 @@
             input.value = 1;
             return;
         } else if (qnt > maxQuantity) {
-            showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Vượt Quá Số Lượng Tồn !");
+            showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Vượt Quá Số Lượng Trong Kho !");
             input.value = 1;
             return;
         }
@@ -576,7 +576,7 @@
             showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Số Lượng Không Được Là Âm!");
             return;
         } else if (qnt > maxQuantity) {
-            showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Vượt Quá Số Lượng Tồn!");
+            showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Vượt Quá Số Lượng Trong Kho!");
             return;
         }
 
@@ -638,7 +638,7 @@
 
         // Nếu số lượng vượt quá số lượng tồn, hiển thị modal lỗi
         if (!isQuantityValid) {
-            showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Số Lượng Sản Phẩm vượt Quá Số Lượng Tồn!");
+            showThongBaoModal(" Bạn Vui Lòng Nhập Lại ! Số Lượng Sản Phẩm vượt Quá Số Lượng Trong Kho!");
             return;
         }
 

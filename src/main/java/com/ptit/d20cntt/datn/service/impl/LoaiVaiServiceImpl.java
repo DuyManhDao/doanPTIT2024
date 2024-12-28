@@ -32,8 +32,8 @@ public class LoaiVaiServiceImpl implements LoaiVaiService {
         loaiVai.setTen(loaiVaiRequest.getTen());
 
         LoaiVai loaiVaiAddLater = loaiVaiRepository.save(loaiVai);
-        String maDG = "DG" + loaiVaiAddLater.getId().toString();
-        loaiVaiAddLater.setMa(maDG);
+        String maLV = "LV" + String.format("%03d", loaiVaiAddLater.getId());
+        loaiVaiAddLater.setMa(maLV);
         return loaiVaiRepository.save(loaiVaiAddLater);
     }
 
