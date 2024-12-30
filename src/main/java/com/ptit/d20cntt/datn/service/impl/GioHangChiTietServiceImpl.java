@@ -2,8 +2,8 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.GioHang;
 import com.ptit.d20cntt.datn.entity.GioHangChiTiet;
-import com.ptit.d20cntt.datn.responsitory.GioHangChiTietRepository;
-import com.ptit.d20cntt.datn.responsitory.GioHangRepository;
+import com.ptit.d20cntt.datn.repository.GioHangChiTietRepository;
+import com.ptit.d20cntt.datn.repository.GioHangRepository;
 import com.ptit.d20cntt.datn.service.GioHangChiTietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

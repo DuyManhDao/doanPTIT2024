@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.report;
 
 
 import com.ptit.d20cntt.datn.entity.NhanVien;
-import com.ptit.d20cntt.datn.responsitory.NhanVienRepository;
+import com.ptit.d20cntt.datn.repository.NhanVienRepository;
 import com.ptit.d20cntt.datn.service.EmpExcelService;
 import com.ptit.d20cntt.datn.service.impl.EmpExcelImpl;
 import jakarta.servlet.http.HttpServletResponse;

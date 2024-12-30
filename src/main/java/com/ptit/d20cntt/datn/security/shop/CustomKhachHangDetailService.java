@@ -1,7 +1,7 @@
 package com.ptit.d20cntt.datn.security.shop;
 
 import com.ptit.d20cntt.datn.entity.KhachHang;
-import com.ptit.d20cntt.datn.responsitory.KhachHangRepository;
+import com.ptit.d20cntt.datn.repository.KhachHangRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

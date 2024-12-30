@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.AnhBia;
 import com.ptit.d20cntt.datn.entity.SanPham;
-import com.ptit.d20cntt.datn.responsitory.AnhBiaRepository;
+import com.ptit.d20cntt.datn.repository.AnhBiaRepository;
 import com.ptit.d20cntt.datn.service.AnhBiaService;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

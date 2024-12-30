@@ -49,13 +49,13 @@ public class SanPhamController {
     private SpingSecurity spingsecurity = new SpingSecurity();
 
     @GetMapping()
-    public String hienThi(Model model) {
+    public String getAllSanPham(Model model) {
         Long idNhanVien = spingsecurity.getCurrentNhanVienId();
         if (idNhanVien == null){
             return "redirect:/login";
         }
 
-        model.addAttribute("tenNhanVien",spingsecurity.getCurrentNhanVienTen());
+        model.addAttribute("tenNhanVien", spingsecurity.getCurrentNhanVienTen());
         model.addAttribute("listSanPham", sanPhamService.getAll());
         model.addAttribute("index", pageNo + 1);
         model.addAttribute("trangThais", list);
@@ -171,7 +171,7 @@ public class SanPhamController {
 
 
     @GetMapping("edit/{id}")
-    public String editProduct(@PathVariable("id") Long id, Model model) {
+    public String editSanPham(@PathVariable("id") Long id, Model model) {
         Long idNhanVien = spingsecurity.getCurrentNhanVienId();
         if (idNhanVien == null){
             return "redirect:/login";
@@ -191,7 +191,7 @@ public class SanPhamController {
     }
 
     @PostMapping("/update")
-    public String updateProduct(@Valid @ModelAttribute("sanPham") SanPhamRequest sanPhamRequest,
+    public String updateSanPham(@Valid @ModelAttribute("sanPham") SanPhamRequest sanPhamRequest,
                                 BindingResult result, Model model) {
 
         String ten = sanPhamRequest.getTen();

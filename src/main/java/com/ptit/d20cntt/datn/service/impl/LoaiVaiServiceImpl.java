@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.LoaiVai;
 import com.ptit.d20cntt.datn.request.LoaiVaiRequest;
-import com.ptit.d20cntt.datn.responsitory.LoaiVaiRepository;
+import com.ptit.d20cntt.datn.repository.LoaiVaiRepository;
 import com.ptit.d20cntt.datn.service.LoaiVaiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
