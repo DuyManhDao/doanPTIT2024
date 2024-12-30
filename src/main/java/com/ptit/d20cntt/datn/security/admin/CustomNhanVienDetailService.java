@@ -2,8 +2,8 @@ package com.ptit.d20cntt.datn.security.admin;
 
 import com.ptit.d20cntt.datn.entity.KhachHang;
 import com.ptit.d20cntt.datn.entity.NhanVien;
-import com.ptit.d20cntt.datn.responsitory.KhachHangRepository;
-import com.ptit.d20cntt.datn.responsitory.NhanVienRepository;
+import com.ptit.d20cntt.datn.repository.KhachHangRepository;
+import com.ptit.d20cntt.datn.repository.NhanVienRepository;
 import com.ptit.d20cntt.datn.security.shop.CustomKhachHangDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

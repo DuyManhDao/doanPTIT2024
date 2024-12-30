@@ -6,7 +6,7 @@ import com.ptit.d20cntt.datn.dto.ChiTietSanPhamDTO;
 import com.ptit.d20cntt.datn.dto.ChiTietSanPhamMapper;
 import com.ptit.d20cntt.datn.entity.ChiTietSanPham;
 import com.ptit.d20cntt.datn.entity.SanPham;
-import com.ptit.d20cntt.datn.responsitory.BanHangOnlineRepository;
+import com.ptit.d20cntt.datn.repository.BanHangOnlineRepository;
 import com.ptit.d20cntt.datn.service.BanHangOnlineCustomService;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;

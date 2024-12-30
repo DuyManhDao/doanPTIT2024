@@ -1,4 +1,4 @@
-package com.ptit.d20cntt.datn.responsitory;
+package com.ptit.d20cntt.datn.repository;
 
 import com.ptit.d20cntt.datn.custom.HoaDonCustom;
 import com.ptit.d20cntt.datn.entity.HoaDon;

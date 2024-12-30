@@ -8,23 +8,24 @@ import com.ptit.d20cntt.datn.entity.ThuongHieu;
 import java.util.List;
 
 public interface SanPhamCustom {
-    Long getId();
+	Long getId();
 
-    String getMa();
+	String getMa();
 
-    String getTen();
+	String getTen();
 
-    String getMoTa();
+	String getMoTa();
 
-    Integer getTrangThai();
+	Integer getTrangThai();
 
-    ThuongHieu getThuongHieu();
+	ThuongHieu getThuongHieu();
 
-    NhaCungCap getNhaCungCap();
-   DongSanPham getDongSanPham();
+	NhaCungCap getNhaCungCap();
 
-    List<AnhBia> listAnh();
+	DongSanPham getDongSanPham();
 
-    String getAnhChinh();
+	List<AnhBia> listAnh();
+
+	String getAnhChinh();
 
 }

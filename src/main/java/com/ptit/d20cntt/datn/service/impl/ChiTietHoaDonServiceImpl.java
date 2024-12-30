@@ -1,7 +1,7 @@
 package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.HoaDonChiTiet;
-import com.ptit.d20cntt.datn.responsitory.HoaDonChiTietRepo;
+import com.ptit.d20cntt.datn.repository.HoaDonChiTietRepo;
 import com.ptit.d20cntt.datn.service.HoaDonChiTietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

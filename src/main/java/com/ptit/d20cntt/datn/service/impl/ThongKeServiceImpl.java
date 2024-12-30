@@ -1,9 +1,9 @@
 package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.GioHangChiTiet;
-import com.ptit.d20cntt.datn.responsitory.GioHangChiTietRepository;
-import com.ptit.d20cntt.datn.responsitory.HoaDonChiTietRepo;
-import com.ptit.d20cntt.datn.responsitory.HoaDonRepo;
+import com.ptit.d20cntt.datn.repository.GioHangChiTietRepository;
+import com.ptit.d20cntt.datn.repository.HoaDonChiTietRepo;
+import com.ptit.d20cntt.datn.repository.HoaDonRepo;
 import com.ptit.d20cntt.datn.service.ThongKeService;
 import org.springframework.stereotype.Service;
 

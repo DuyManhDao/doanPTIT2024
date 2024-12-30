@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.NhanVien;
 import com.ptit.d20cntt.datn.request.NhanVienRequest;
-import com.ptit.d20cntt.datn.responsitory.NhanVienRepository;
+import com.ptit.d20cntt.datn.repository.NhanVienRepository;
 import com.ptit.d20cntt.datn.sendmail.EmailService;
 import com.ptit.d20cntt.datn.service.NhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
