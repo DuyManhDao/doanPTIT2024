@@ -4,7 +4,7 @@ import com.ptit.d20cntt.datn.entity.KhachHang;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.DiaChiRequest;
 import com.ptit.d20cntt.datn.request.KhachHangRequest;
-import com.ptit.d20cntt.datn.responsitory.KhachHangRepository;
+import com.ptit.d20cntt.datn.repository.KhachHangRepository;
 import com.ptit.d20cntt.datn.sendmail.EmailService;
 import com.ptit.d20cntt.datn.service.DiaChiService;
 import com.ptit.d20cntt.datn.service.KhachHangService;

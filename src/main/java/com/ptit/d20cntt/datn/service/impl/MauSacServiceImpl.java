@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.MauSac;
 import com.ptit.d20cntt.datn.request.MauSacRequest;
-import com.ptit.d20cntt.datn.responsitory.MauSacRepository;
+import com.ptit.d20cntt.datn.repository.MauSacRepository;
 import com.ptit.d20cntt.datn.service.MauSacService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

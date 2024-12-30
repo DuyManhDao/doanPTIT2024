@@ -6,7 +6,7 @@ import com.ptit.d20cntt.datn.entity.GioHangChiTiet;
 import com.ptit.d20cntt.datn.entity.HoaDon;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.enumation.TrangThaiDonHang;
-import com.ptit.d20cntt.datn.responsitory.ChiTietSanPhamRepository;
+import com.ptit.d20cntt.datn.repository.ChiTietSanPhamRepository;
 import com.ptit.d20cntt.datn.service.BanHangService;
 import com.ptit.d20cntt.datn.service.GioHangChiTietService;
 import com.ptit.d20cntt.datn.service.HoaDonChiTietService;
@@ -60,7 +60,7 @@ public class HoaDonController {
      * @return
      */
     @GetMapping
-    public String getAll(Model model) {
+    public String getAllHoaDon(Model model) {
         Long idNhanVien = spingsecurity.getCurrentNhanVienId();
         if (idNhanVien == null){
             return "redirect:/login";
@@ -131,7 +131,7 @@ public class HoaDonController {
      * @return
      */
     @GetMapping("/chi-tiet-hoa-don/{id}")
-    public String detaiOff(Model model,
+    public String detailOff(Model model,
                            @PathVariable("id") Long idHd,
                            @Param("trangThai") TrangThai trangThai) {
         Long idNhanVien = spingsecurity.getCurrentNhanVienId();

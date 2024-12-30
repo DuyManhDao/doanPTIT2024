@@ -4,7 +4,7 @@ import com.ptit.d20cntt.datn.entity.GioHangChiTiet;
 import com.ptit.d20cntt.datn.entity.HoaDon;
 import com.ptit.d20cntt.datn.entity.KhachHang;
 import com.ptit.d20cntt.datn.enumation.TrangThaiDonHang;
-import com.ptit.d20cntt.datn.responsitory.GioHangChiTietRepository;
+import com.ptit.d20cntt.datn.repository.GioHangChiTietRepository;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

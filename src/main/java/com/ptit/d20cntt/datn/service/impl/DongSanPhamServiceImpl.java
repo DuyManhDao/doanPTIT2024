@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.service.impl;
 import com.ptit.d20cntt.datn.entity.DongSanPham;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.DongSanPhamRequest;
-import com.ptit.d20cntt.datn.responsitory.DongSanPhamRepository;
+import com.ptit.d20cntt.datn.repository.DongSanPhamRepository;
 import com.ptit.d20cntt.datn.service.DongSanPhamService;
 import org.springframework.stereotype.Repository;
 

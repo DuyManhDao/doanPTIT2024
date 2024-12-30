@@ -7,10 +7,10 @@ import com.ptit.d20cntt.datn.entity.SanPham;
 import com.ptit.d20cntt.datn.entity.ThuongHieu;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.SanPhamRequest;
-import com.ptit.d20cntt.datn.responsitory.DongSanPhamRepository;
-import com.ptit.d20cntt.datn.responsitory.NhaCungCapRepository;
-import com.ptit.d20cntt.datn.responsitory.SanPhamRepository;
-import com.ptit.d20cntt.datn.responsitory.ThuongHieuRepository;
+import com.ptit.d20cntt.datn.repository.DongSanPhamRepository;
+import com.ptit.d20cntt.datn.repository.NhaCungCapRepository;
+import com.ptit.d20cntt.datn.repository.SanPhamRepository;
+import com.ptit.d20cntt.datn.repository.ThuongHieuRepository;
 import com.ptit.d20cntt.datn.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -99,9 +99,6 @@ public class SanPhamServiceImpl implements SanPhamService {
         }
         return null;
     }
-
-
-
 
     @Override
     public SanPham findById(Long id) {

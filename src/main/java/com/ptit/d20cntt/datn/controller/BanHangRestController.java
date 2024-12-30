@@ -1,6 +1,6 @@
 package com.ptit.d20cntt.datn.controller;
 
-import com.ptit.d20cntt.datn.responsitory.HoaDonChiTietRepository;
+import com.ptit.d20cntt.datn.repository.HoaDonChiTietRepository;
 import com.ptit.d20cntt.datn.service.BanHangService;
 import com.ptit.d20cntt.datn.service.ChiTietSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,7 @@ package com.ptit.d20cntt.datn.service.impl;
 
 import com.ptit.d20cntt.datn.entity.KichThuoc;
 import com.ptit.d20cntt.datn.request.KichThuocRequest;
-import com.ptit.d20cntt.datn.responsitory.KichThuocRepository;
+import com.ptit.d20cntt.datn.repository.KichThuocRepository;
 import com.ptit.d20cntt.datn.service.KhichThuocService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

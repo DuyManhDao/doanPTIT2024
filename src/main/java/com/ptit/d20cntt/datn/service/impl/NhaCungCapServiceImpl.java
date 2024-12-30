@@ -3,7 +3,7 @@ package com.ptit.d20cntt.datn.service.impl;
 import com.ptit.d20cntt.datn.entity.NhaCungCap;
 import com.ptit.d20cntt.datn.enumation.TrangThai;
 import com.ptit.d20cntt.datn.request.NhaCungCapRequest;
-import com.ptit.d20cntt.datn.responsitory.NhaCungCapRepository;
+import com.ptit.d20cntt.datn.repository.NhaCungCapRepository;
 import com.ptit.d20cntt.datn.service.NhaCungCapService;
 import org.springframework.stereotype.Repository;
 
