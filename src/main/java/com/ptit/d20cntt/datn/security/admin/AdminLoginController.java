@@ -37,7 +37,7 @@ public class AdminLoginController {
         }
         redirectAttributes.addAttribute("thanhcong", true);
         // Successful login logic here
-        return "redirect:admin/ban-hang";
+        return "redirect:admin/hoa-don";
     }
 
     private boolean authenticate(String email, String password) {
@@ -60,7 +60,7 @@ public class AdminLoginController {
             return "admin-template/login";
         }
         khachHangService.registration(khachHang);
-        redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công, check mail để lấy password !");
+        redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công, kiểm tra e-mail để lấy password !");
 
         return "redirect:/login";
     }
@@ -73,7 +73,7 @@ public class AdminLoginController {
     @GetMapping("/default")
     public String defaultAfterLogin(HttpServletRequest request, Model model) {
         if (request.isUserInRole("ROLE_ADMIN")) {
-            return "redirect:/admin/ban-hang";
+            return "redirect:/admin/hoa-don";
         }
 
         model.addAttribute("checkSecurity", true);
